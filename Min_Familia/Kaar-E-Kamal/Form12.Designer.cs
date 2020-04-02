@@ -656,7 +656,7 @@
         private System.Windows.Forms.Panel TeamsSubMenuePanel;
         private FontAwesome.Sharp.IconButton MyTeamButton;
         private FontAwesome.Sharp.IconButton ShowTeamsButton;
-        private FontAwesome.Sharp.IconButton HelpButton;
+        private new FontAwesome.Sharp.IconButton HelpButton;
         private FontAwesome.Sharp.IconButton ReferenceButton;
         private System.Windows.Forms.Panel CasesSubMenuePanel;
         private FontAwesome.Sharp.IconButton CompletedCasesButton;

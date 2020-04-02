@@ -51,6 +51,13 @@
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.CancelIconButton = new FontAwesome.Sharp.IconButton();
             this.AddIconButton = new FontAwesome.Sharp.IconButton();
+            this.NameWarningLabel = new System.Windows.Forms.Label();
+            this.EmailWarningLabel = new System.Windows.Forms.Label();
+            this.GenderWarningLabel = new System.Windows.Forms.Label();
+            this.CNICWarningLabel = new System.Windows.Forms.Label();
+            this.NumberWarningLabel = new System.Windows.Forms.Label();
+            this.AddressWarningLabel = new System.Windows.Forms.Label();
+            this.PasswordWarningLabel = new System.Windows.Forms.Label();
             this.BorderPanel.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +110,8 @@
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(176, 22);
             this.EmailBox.TabIndex = 60;
+            this.EmailBox.Enter += new System.EventHandler(this.EmailBox_Enter);
+            this.EmailBox.Leave += new System.EventHandler(this.EmailBox_Leave);
             // 
             // NumberBox
             // 
@@ -111,6 +120,9 @@
             this.NumberBox.Name = "NumberBox";
             this.NumberBox.Size = new System.Drawing.Size(176, 22);
             this.NumberBox.TabIndex = 58;
+            this.NumberBox.Tag = "^[+]*[0-9]{1,4}[ ]{0,1}[- 0-9]{5,11}$";
+            this.NumberBox.Enter += new System.EventHandler(this.NumberBox_Enter);
+            this.NumberBox.Leave += new System.EventHandler(this.NumberBox_Leave);
             // 
             // CNICBox
             // 
@@ -119,6 +131,9 @@
             this.CNICBox.Name = "CNICBox";
             this.CNICBox.Size = new System.Drawing.Size(176, 22);
             this.CNICBox.TabIndex = 57;
+            this.CNICBox.Tag = "^[0-9]{5}(-)[0-9]{7}(-)[0-9]{1}$";
+            this.CNICBox.Enter += new System.EventHandler(this.CNICBox_Enter);
+            this.CNICBox.Leave += new System.EventHandler(this.CNICBox_Leave);
             // 
             // label10
             // 
@@ -177,6 +192,8 @@
             this.GenderBox.Size = new System.Drawing.Size(176, 24);
             this.GenderBox.TabIndex = 70;
             this.GenderBox.TextChanged += new System.EventHandler(this.GenderBox_TextChanged);
+            this.GenderBox.Enter += new System.EventHandler(this.GenderBox_Enter);
+            this.GenderBox.Leave += new System.EventHandler(this.GenderBox_Leave);
             // 
             // PasswordBox
             // 
@@ -185,6 +202,8 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(176, 22);
             this.PasswordBox.TabIndex = 68;
+            this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            this.PasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
             // 
             // NameBox
             // 
@@ -193,6 +212,9 @@
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(176, 22);
             this.NameBox.TabIndex = 67;
+            this.NameBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
+            this.NameBox.Enter += new System.EventHandler(this.NameBox_Enter);
+            this.NameBox.Leave += new System.EventHandler(this.NameBox_Leave);
             // 
             // label6
             // 
@@ -235,6 +257,8 @@
             this.AddressRichBox.Size = new System.Drawing.Size(176, 70);
             this.AddressRichBox.TabIndex = 71;
             this.AddressRichBox.Text = "";
+            this.AddressRichBox.Enter += new System.EventHandler(this.AddressRichBox_Enter);
+            this.AddressRichBox.Leave += new System.EventHandler(this.AddressRichBox_Leave);
             // 
             // panel1
             // 
@@ -314,12 +338,103 @@
             this.AddIconButton.UseVisualStyleBackColor = false;
             this.AddIconButton.Click += new System.EventHandler(this.AddIconButton_Click);
             // 
+            // NameWarningLabel
+            // 
+            this.NameWarningLabel.AutoSize = true;
+            this.NameWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.NameWarningLabel.Location = new System.Drawing.Point(361, 152);
+            this.NameWarningLabel.Name = "NameWarningLabel";
+            this.NameWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.NameWarningLabel.TabIndex = 76;
+            this.NameWarningLabel.Text = "*";
+            // 
+            // EmailWarningLabel
+            // 
+            this.EmailWarningLabel.AutoSize = true;
+            this.EmailWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.EmailWarningLabel.Location = new System.Drawing.Point(361, 202);
+            this.EmailWarningLabel.Name = "EmailWarningLabel";
+            this.EmailWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.EmailWarningLabel.TabIndex = 77;
+            this.EmailWarningLabel.Text = "*";
+            // 
+            // GenderWarningLabel
+            // 
+            this.GenderWarningLabel.AutoSize = true;
+            this.GenderWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GenderWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenderWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.GenderWarningLabel.Location = new System.Drawing.Point(361, 254);
+            this.GenderWarningLabel.Name = "GenderWarningLabel";
+            this.GenderWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.GenderWarningLabel.TabIndex = 78;
+            this.GenderWarningLabel.Text = "*";
+            // 
+            // CNICWarningLabel
+            // 
+            this.CNICWarningLabel.AutoSize = true;
+            this.CNICWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CNICWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CNICWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.CNICWarningLabel.Location = new System.Drawing.Point(716, 151);
+            this.CNICWarningLabel.Name = "CNICWarningLabel";
+            this.CNICWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.CNICWarningLabel.TabIndex = 79;
+            this.CNICWarningLabel.Text = "*";
+            // 
+            // NumberWarningLabel
+            // 
+            this.NumberWarningLabel.AutoSize = true;
+            this.NumberWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NumberWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumberWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.NumberWarningLabel.Location = new System.Drawing.Point(716, 202);
+            this.NumberWarningLabel.Name = "NumberWarningLabel";
+            this.NumberWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.NumberWarningLabel.TabIndex = 80;
+            this.NumberWarningLabel.Text = "*";
+            // 
+            // AddressWarningLabel
+            // 
+            this.AddressWarningLabel.AutoSize = true;
+            this.AddressWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AddressWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddressWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.AddressWarningLabel.Location = new System.Drawing.Point(716, 254);
+            this.AddressWarningLabel.Name = "AddressWarningLabel";
+            this.AddressWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.AddressWarningLabel.TabIndex = 81;
+            this.AddressWarningLabel.Text = "*";
+            // 
+            // PasswordWarningLabel
+            // 
+            this.PasswordWarningLabel.AutoSize = true;
+            this.PasswordWarningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PasswordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            this.PasswordWarningLabel.Location = new System.Drawing.Point(361, 302);
+            this.PasswordWarningLabel.Name = "PasswordWarningLabel";
+            this.PasswordWarningLabel.Size = new System.Drawing.Size(16, 20);
+            this.PasswordWarningLabel.TabIndex = 82;
+            this.PasswordWarningLabel.Text = "*";
+            // 
             // MemberDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PasswordWarningLabel);
+            this.Controls.Add(this.AddressWarningLabel);
+            this.Controls.Add(this.NumberWarningLabel);
+            this.Controls.Add(this.CNICWarningLabel);
+            this.Controls.Add(this.GenderWarningLabel);
+            this.Controls.Add(this.EmailWarningLabel);
+            this.Controls.Add(this.NameWarningLabel);
             this.Controls.Add(this.HeadingPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -378,5 +493,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel HeadingPanel;
+        private System.Windows.Forms.Label NameWarningLabel;
+        private System.Windows.Forms.Label EmailWarningLabel;
+        private System.Windows.Forms.Label GenderWarningLabel;
+        private System.Windows.Forms.Label CNICWarningLabel;
+        private System.Windows.Forms.Label NumberWarningLabel;
+        private System.Windows.Forms.Label AddressWarningLabel;
+        private System.Windows.Forms.Label PasswordWarningLabel;
     }
 }

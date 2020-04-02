@@ -47,7 +47,7 @@
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.MemberSearchBox = new System.Windows.Forms.TextBox();
             this.HeadingLable = new System.Windows.Forms.Label();
-            this.Top = new System.Windows.Forms.Panel();
+            this.TopPanel = new System.Windows.Forms.Panel();
             this.TeamSearchBox = new System.Windows.Forms.TextBox();
             this.TeamGrid = new System.Windows.Forms.DataGridView();
             this.Col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +70,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchPanel.SuspendLayout();
-            this.Top.SuspendLayout();
+            this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeamGrid)).BeginInit();
             this.BackPartionPanel.SuspendLayout();
             this.PartionPanel.SuspendLayout();
@@ -134,15 +134,15 @@
             // 
             // Top
             // 
-            this.Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.Top.Controls.Add(this.TeamSearchBox);
-            this.Top.Controls.Add(this.SearchPanel);
-            this.Top.Controls.Add(this.HeadingLable);
-            this.Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Top.Location = new System.Drawing.Point(0, 0);
-            this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(929, 33);
-            this.Top.TabIndex = 48;
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.TopPanel.Controls.Add(this.TeamSearchBox);
+            this.TopPanel.Controls.Add(this.SearchPanel);
+            this.TopPanel.Controls.Add(this.HeadingLable);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Name = "Top";
+            this.TopPanel.Size = new System.Drawing.Size(929, 33);
+            this.TopPanel.TabIndex = 48;
             // 
             // TeamSearchBox
             // 
@@ -542,15 +542,15 @@
             this.Controls.Add(this.TeamGrid);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LeftPanel);
-            this.Controls.Add(this.Top);
+            this.Controls.Add(this.TopPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TeamsForm";
             this.Tag = "Teams";
             this.SizeChanged += new System.EventHandler(this.TeamsForm_SizeChanged);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
-            this.Top.ResumeLayout(false);
-            this.Top.PerformLayout();
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeamGrid)).EndInit();
             this.BackPartionPanel.ResumeLayout(false);
             this.PartionPanel.ResumeLayout(false);
@@ -567,7 +567,7 @@
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.TextBox MemberSearchBox;
         private System.Windows.Forms.Label HeadingLable;
-        private System.Windows.Forms.Panel Top;
+        private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.DataGridView TeamGrid;
         private System.Windows.Forms.TextBox TeamSearchBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col5;

@@ -48,7 +48,7 @@
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.HeadingLable = new System.Windows.Forms.Label();
-            this.Top = new System.Windows.Forms.Panel();
+            this.TopPanel = new System.Windows.Forms.Panel();
             this.ReferencesGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RightPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
-            this.Top.SuspendLayout();
+            this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReferencesGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,14 +194,14 @@
             // 
             // Top
             // 
-            this.Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.Top.Controls.Add(this.SearchPanel);
-            this.Top.Controls.Add(this.HeadingLable);
-            this.Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Top.Location = new System.Drawing.Point(0, 0);
-            this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(800, 33);
-            this.Top.TabIndex = 55;
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.TopPanel.Controls.Add(this.SearchPanel);
+            this.TopPanel.Controls.Add(this.HeadingLable);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Name = "Top";
+            this.TopPanel.Size = new System.Drawing.Size(800, 33);
+            this.TopPanel.TabIndex = 55;
             // 
             // ReferencesGrid
             // 
@@ -369,14 +369,14 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.RightPanel);
             this.Controls.Add(this.LeftPanel);
-            this.Controls.Add(this.Top);
+            this.Controls.Add(this.TopPanel);
             this.Name = "ReferencesForm";
             this.Tag = "References";
             this.RightPanel.ResumeLayout(false);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
-            this.Top.ResumeLayout(false);
-            this.Top.PerformLayout();
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReferencesGrid)).EndInit();
             this.ResumeLayout(false);
 
@@ -392,7 +392,7 @@
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label HeadingLable;
-        private System.Windows.Forms.Panel Top;
+        private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.DataGridView ReferencesGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;

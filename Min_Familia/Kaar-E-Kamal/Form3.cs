@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace Kaar_E_Kamal
        public MembersForm(char Person)
         {
             InitializeComponent();
-            PopulateGrid();
+            PopulateGrid("SELECT * FROM Familia_MembersData");
             
             if (Person == 'M')
             {
@@ -18,27 +19,47 @@ namespace Kaar_E_Kamal
             }
         }
 
-
-
-        #region ChildOpenTest
-        private bool FormOpen(string FormTag)
-        {
-            foreach (Form Child in Application.OpenForms)
-                if ((string)Child.Tag == FormTag)
-                {
-                    Child.BringToFront();
-                    return true;
-                }
-            return false;
-        }
+        #region Fields
+        private readonly SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
         #endregion
 
         #region Grid
-        private void PopulateGrid()
-        {//Test
-            MemberGrid.Rows.Add('1', "Tayyab Asghar", "33303-7405121-9", "muhammadtayyabasghar@gmail.com", "+92 314 3240296", "Home", "Unspecified", "Survey Drive Team #1");
-            MemberGrid.Rows.Add('2', "Komal Asghar", "33303-7445151-9", "komalasghar@gmail.com", "+92 314 6108486", "Home", "Female", "Survey Drive Team #2");
-            MemberGrid.Rows.Add('3', "Zareen Asghar", "33303-7426151-4", "Zareenasghar@gmail.com", "+92 314 7292232", "Home", "male", "Survey Drive Team #3");
+        private void PopulateGrid(string Query)
+        {
+            try
+            {
+                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
+                {
+                    MinFamiliaCon.Open();
+                    using (SqlDataReader DataReader = Command.ExecuteReader())
+                    {
+                        DataGridViewRow Rows = new DataGridViewRow();
+                        int Count = 1;
+
+                        MemberGrid.Rows.Clear();                // Clearing the Rows.
+
+                        while (DataReader.Read())
+                        {
+                            Rows.CreateCells(MemberGrid);       // Create cells in DataGridViewRows Same as MemberGrid
+
+                            Rows.Cells[0].Value = Count++;
+                            Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_MembersData_Name"]);
+                            Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_MembersData_CNIC"]);
+                            Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_MembersData_Email"]);
+                            Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_MembersData_Phone"]);
+                            Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_MembersData_Address"]);
+                            Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_MembersData_Gender"]);
+                            Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_MembersData_Team_ID"]);
+
+                            MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Application.Exit();
+            }
         }
         #endregion
 
@@ -55,9 +76,9 @@ namespace Kaar_E_Kamal
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
-            // Select Query
+            PopulateGrid("Select * From Familia_MembersData WHERE ");
         }
-
+        
         private void SearchBox_Leave(object sender, EventArgs e)
         {
             if (SearchBox.Text == "")
@@ -74,29 +95,37 @@ namespace Kaar_E_Kamal
         #region Events
         private void AddIconButton_Click(object sender, EventArgs e)
         {
-            if (!FormOpen("MembersDetails"))
-            {
-                new MemberDetailsForm().Show();
-                PopulateGrid();
-            }
+            new MemberDetailsForm().Show();
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            if (!FormOpen("MembersDetails"))
-            {
-                new MemberDetailsForm("Here will Go CNic").Show();
-                PopulateGrid();
-            }
+            new MemberDetailsForm("Here will Go CNic").Show();
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (!FormOpen("MembersDetails"))
-            {
-                PopulateGrid();
-            }
+            PopulateGrid("SELECT * FROM Familia_MembersData");
         }
         #endregion
+
+        #region Extra Functions
+        private bool SubFormActivated()   // Return bool if Form activated and BringToFront it.
+        {
+            foreach (Form Child in Application.OpenForms)
+                if (((string)Child.Tag == "Confirmation") || ((string)Child.Tag == "MembersDetails"))
+                {
+                    Child.BringToFront();
+                    return true;
+                }
+            return false;
+        }
+        #endregion
+
+        private void MembersForm_Activated(object sender, EventArgs e)
+        {
+            if (!SubFormActivated())
+                PopulateGrid("SELECT * FROM Familia_MembersData");
+        }
     }
 }

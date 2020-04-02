@@ -30,16 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuFormAD));
             this.PanelSideMenue = new System.Windows.Forms.Panel();
-            this.LinePanel = new System.Windows.Forms.Panel();
-            this.LogoPanel = new System.Windows.Forms.Panel();
-            this.BorderPanel = new System.Windows.Forms.Panel();
-            this.Titlelabel = new System.Windows.Forms.Label();
-            this.TopPanel = new System.Windows.Forms.Panel();
-            this.DeskTopPanel = new System.Windows.Forms.Panel();
-            this.SubDeskTopPanel = new System.Windows.Forms.Panel();
+            this.HelpButton = new FontAwesome.Sharp.IconButton();
+            this.ReferenceButton = new FontAwesome.Sharp.IconButton();
             this.CasesSubMenuePanel = new System.Windows.Forms.Panel();
-            this.CasesPictureBox = new System.Windows.Forms.PictureBox();
-            this.TitleIconPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.CompletedCasesButton = new FontAwesome.Sharp.IconButton();
             this.PendingCasesButton = new FontAwesome.Sharp.IconButton();
             this.RejectedCasesButton = new FontAwesome.Sharp.IconButton();
@@ -48,23 +41,30 @@
             this.CasesButton = new FontAwesome.Sharp.IconButton();
             this.TeamsButton = new FontAwesome.Sharp.IconButton();
             this.MembersButton = new FontAwesome.Sharp.IconButton();
+            this.LinePanel = new System.Windows.Forms.Panel();
             this.LogoutButton = new FontAwesome.Sharp.IconButton();
+            this.LogoPanel = new System.Windows.Forms.Panel();
             this.LogoBox = new System.Windows.Forms.PictureBox();
+            this.BorderPanel = new System.Windows.Forms.Panel();
             this.MinimizeIconButton = new FontAwesome.Sharp.IconButton();
             this.MaximizeIconButton = new FontAwesome.Sharp.IconButton();
             this.CloseIconButton = new FontAwesome.Sharp.IconButton();
-            this.ReferenceButton = new FontAwesome.Sharp.IconButton();
-            this.HelpButton = new FontAwesome.Sharp.IconButton();
+            this.Titlelabel = new System.Windows.Forms.Label();
+            this.TopPanel = new System.Windows.Forms.Panel();
+            this.TitleIconPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.DeskTopPanel = new System.Windows.Forms.Panel();
+            this.SubDeskTopPanel = new System.Windows.Forms.Panel();
+            this.CasesPictureBox = new System.Windows.Forms.PictureBox();
             this.PanelSideMenue.SuspendLayout();
+            this.CasesSubMenuePanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.BorderPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).BeginInit();
             this.DeskTopPanel.SuspendLayout();
             this.SubDeskTopPanel.SuspendLayout();
-            this.CasesSubMenuePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CasesPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelSideMenue
@@ -86,79 +86,57 @@
             this.PanelSideMenue.Size = new System.Drawing.Size(177, 599);
             this.PanelSideMenue.TabIndex = 7;
             // 
-            // LinePanel
+            // HelpButton
             // 
-            this.LinePanel.BackColor = System.Drawing.Color.White;
-            this.LinePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LinePanel.Location = new System.Drawing.Point(0, 558);
-            this.LinePanel.Name = "LinePanel";
-            this.LinePanel.Size = new System.Drawing.Size(177, 1);
-            this.LinePanel.TabIndex = 19;
+            this.HelpButton.BackColor = System.Drawing.Color.Transparent;
+            this.HelpButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.HelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.HelpButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.HelpButton.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.HelpButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.HelpButton.IconSize = 28;
+            this.HelpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HelpButton.Location = new System.Drawing.Point(0, 411);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Rotation = 0D;
+            this.HelpButton.Size = new System.Drawing.Size(177, 40);
+            this.HelpButton.TabIndex = 31;
+            this.HelpButton.Tag = "Non-Parent";
+            this.HelpButton.Text = "Help";
+            this.HelpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
-            // LogoPanel
+            // ReferenceButton
             // 
-            this.LogoPanel.Controls.Add(this.LogoBox);
-            this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LogoPanel.Location = new System.Drawing.Point(0, 0);
-            this.LogoPanel.Name = "LogoPanel";
-            this.LogoPanel.Size = new System.Drawing.Size(177, 106);
-            this.LogoPanel.TabIndex = 1;
-            // 
-            // BorderPanel
-            // 
-            this.BorderPanel.BackColor = System.Drawing.Color.Black;
-            this.BorderPanel.Controls.Add(this.MinimizeIconButton);
-            this.BorderPanel.Controls.Add(this.MaximizeIconButton);
-            this.BorderPanel.Controls.Add(this.CloseIconButton);
-            this.BorderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BorderPanel.Location = new System.Drawing.Point(0, 0);
-            this.BorderPanel.Name = "BorderPanel";
-            this.BorderPanel.Size = new System.Drawing.Size(1004, 38);
-            this.BorderPanel.TabIndex = 11;
-            this.BorderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            // 
-            // Titlelabel
-            // 
-            this.Titlelabel.AutoSize = true;
-            this.Titlelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titlelabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Titlelabel.Location = new System.Drawing.Point(67, 20);
-            this.Titlelabel.Name = "Titlelabel";
-            this.Titlelabel.Size = new System.Drawing.Size(45, 16);
-            this.Titlelabel.TabIndex = 1;
-            this.Titlelabel.Text = "Home";
-            // 
-            // TopPanel
-            // 
-            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.TopPanel.Controls.Add(this.Titlelabel);
-            this.TopPanel.Controls.Add(this.TitleIconPictureBox);
-            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopPanel.Location = new System.Drawing.Point(177, 0);
-            this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(827, 48);
-            this.TopPanel.TabIndex = 12;
-            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            // 
-            // DeskTopPanel
-            // 
-            this.DeskTopPanel.Controls.Add(this.SubDeskTopPanel);
-            this.DeskTopPanel.Controls.Add(this.TopPanel);
-            this.DeskTopPanel.Controls.Add(this.PanelSideMenue);
-            this.DeskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeskTopPanel.Location = new System.Drawing.Point(0, 38);
-            this.DeskTopPanel.Name = "DeskTopPanel";
-            this.DeskTopPanel.Size = new System.Drawing.Size(1004, 599);
-            this.DeskTopPanel.TabIndex = 14;
-            // 
-            // SubDeskTopPanel
-            // 
-            this.SubDeskTopPanel.Controls.Add(this.CasesPictureBox);
-            this.SubDeskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SubDeskTopPanel.Location = new System.Drawing.Point(177, 48);
-            this.SubDeskTopPanel.Name = "SubDeskTopPanel";
-            this.SubDeskTopPanel.Size = new System.Drawing.Size(827, 551);
-            this.SubDeskTopPanel.TabIndex = 14;
+            this.ReferenceButton.BackColor = System.Drawing.Color.Transparent;
+            this.ReferenceButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ReferenceButton.FlatAppearance.BorderSize = 0;
+            this.ReferenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ReferenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.ReferenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReferenceButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ReferenceButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReferenceButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ReferenceButton.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.ReferenceButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.ReferenceButton.IconSize = 28;
+            this.ReferenceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReferenceButton.Location = new System.Drawing.Point(0, 371);
+            this.ReferenceButton.Name = "ReferenceButton";
+            this.ReferenceButton.Rotation = 0D;
+            this.ReferenceButton.Size = new System.Drawing.Size(177, 40);
+            this.ReferenceButton.TabIndex = 30;
+            this.ReferenceButton.Tag = "Non-Parent";
+            this.ReferenceButton.Text = "References";
+            this.ReferenceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReferenceButton.UseVisualStyleBackColor = false;
+            this.ReferenceButton.Click += new System.EventHandler(this.ReferenceButton_Click);
             // 
             // CasesSubMenuePanel
             // 
@@ -173,31 +151,6 @@
             this.CasesSubMenuePanel.Name = "CasesSubMenuePanel";
             this.CasesSubMenuePanel.Size = new System.Drawing.Size(177, 145);
             this.CasesSubMenuePanel.TabIndex = 29;
-            // 
-            // CasesPictureBox
-            // 
-            this.CasesPictureBox.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.viktor_talashuk_05HLFQu8bFw_unsplash;
-            this.CasesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CasesPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CasesPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.CasesPictureBox.Name = "CasesPictureBox";
-            this.CasesPictureBox.Size = new System.Drawing.Size(827, 551);
-            this.CasesPictureBox.TabIndex = 13;
-            this.CasesPictureBox.TabStop = false;
-            // 
-            // TitleIconPictureBox
-            // 
-            this.TitleIconPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.TitleIconPictureBox.ForeColor = System.Drawing.Color.MediumPurple;
-            this.TitleIconPictureBox.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.TitleIconPictureBox.IconColor = System.Drawing.Color.MediumPurple;
-            this.TitleIconPictureBox.IconSize = 38;
-            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 6);
-            this.TitleIconPictureBox.Name = "TitleIconPictureBox";
-            this.TitleIconPictureBox.Size = new System.Drawing.Size(38, 38);
-            this.TitleIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.TitleIconPictureBox.TabIndex = 0;
-            this.TitleIconPictureBox.TabStop = false;
             // 
             // CompletedCasesButton
             // 
@@ -397,6 +350,15 @@
             this.MembersButton.UseVisualStyleBackColor = false;
             this.MembersButton.Click += new System.EventHandler(this.MembersButton_Click);
             // 
+            // LinePanel
+            // 
+            this.LinePanel.BackColor = System.Drawing.Color.White;
+            this.LinePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LinePanel.Location = new System.Drawing.Point(0, 558);
+            this.LinePanel.Name = "LinePanel";
+            this.LinePanel.Size = new System.Drawing.Size(177, 1);
+            this.LinePanel.TabIndex = 19;
+            // 
             // LogoutButton
             // 
             this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
@@ -423,6 +385,15 @@
             this.LogoutButton.UseVisualStyleBackColor = false;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
+            // LogoPanel
+            // 
+            this.LogoPanel.Controls.Add(this.LogoBox);
+            this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoPanel.Location = new System.Drawing.Point(0, 0);
+            this.LogoPanel.Name = "LogoPanel";
+            this.LogoPanel.Size = new System.Drawing.Size(177, 106);
+            this.LogoPanel.TabIndex = 1;
+            // 
             // LogoBox
             // 
             this.LogoBox.BackColor = System.Drawing.Color.Gainsboro;
@@ -433,6 +404,19 @@
             this.LogoBox.TabIndex = 0;
             this.LogoBox.TabStop = false;
             this.LogoBox.Click += new System.EventHandler(this.LogoBox_Click);
+            // 
+            // BorderPanel
+            // 
+            this.BorderPanel.BackColor = System.Drawing.Color.Black;
+            this.BorderPanel.Controls.Add(this.MinimizeIconButton);
+            this.BorderPanel.Controls.Add(this.MaximizeIconButton);
+            this.BorderPanel.Controls.Add(this.CloseIconButton);
+            this.BorderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BorderPanel.Location = new System.Drawing.Point(0, 0);
+            this.BorderPanel.Name = "BorderPanel";
+            this.BorderPanel.Size = new System.Drawing.Size(1004, 38);
+            this.BorderPanel.TabIndex = 11;
+            this.BorderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             // 
             // MinimizeIconButton
             // 
@@ -491,57 +475,73 @@
             this.CloseIconButton.UseVisualStyleBackColor = true;
             this.CloseIconButton.Click += new System.EventHandler(this.CloseIconButton_Click);
             // 
-            // ReferenceButton
+            // Titlelabel
             // 
-            this.ReferenceButton.BackColor = System.Drawing.Color.Transparent;
-            this.ReferenceButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ReferenceButton.FlatAppearance.BorderSize = 0;
-            this.ReferenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.ReferenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.ReferenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReferenceButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ReferenceButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReferenceButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ReferenceButton.IconChar = FontAwesome.Sharp.IconChar.UserTag;
-            this.ReferenceButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.ReferenceButton.IconSize = 28;
-            this.ReferenceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReferenceButton.Location = new System.Drawing.Point(0, 371);
-            this.ReferenceButton.Name = "ReferenceButton";
-            this.ReferenceButton.Rotation = 0D;
-            this.ReferenceButton.Size = new System.Drawing.Size(177, 40);
-            this.ReferenceButton.TabIndex = 30;
-            this.ReferenceButton.Tag = "Non-Parent";
-            this.ReferenceButton.Text = "References";
-            this.ReferenceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ReferenceButton.UseVisualStyleBackColor = false;
-            this.ReferenceButton.Click += new System.EventHandler(this.ReferenceButton_Click);
+            this.Titlelabel.AutoSize = true;
+            this.Titlelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titlelabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Titlelabel.Location = new System.Drawing.Point(67, 20);
+            this.Titlelabel.Name = "Titlelabel";
+            this.Titlelabel.Size = new System.Drawing.Size(45, 16);
+            this.Titlelabel.TabIndex = 1;
+            this.Titlelabel.Text = "Home";
             // 
-            // HelpButton
+            // TopPanel
             // 
-            this.HelpButton.BackColor = System.Drawing.Color.Transparent;
-            this.HelpButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HelpButton.FlatAppearance.BorderSize = 0;
-            this.HelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.HelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HelpButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.HelpButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HelpButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.HelpButton.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            this.HelpButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.HelpButton.IconSize = 28;
-            this.HelpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HelpButton.Location = new System.Drawing.Point(0, 411);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Rotation = 0D;
-            this.HelpButton.Size = new System.Drawing.Size(177, 40);
-            this.HelpButton.TabIndex = 31;
-            this.HelpButton.Tag = "Non-Parent";
-            this.HelpButton.Text = "Help";
-            this.HelpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.HelpButton.UseVisualStyleBackColor = false;
-            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.TopPanel.Controls.Add(this.Titlelabel);
+            this.TopPanel.Controls.Add(this.TitleIconPictureBox);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(177, 0);
+            this.TopPanel.Name = "TopPanel";
+            this.TopPanel.Size = new System.Drawing.Size(827, 48);
+            this.TopPanel.TabIndex = 12;
+            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            // 
+            // TitleIconPictureBox
+            // 
+            this.TitleIconPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.TitleIconPictureBox.ForeColor = System.Drawing.Color.MediumPurple;
+            this.TitleIconPictureBox.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.TitleIconPictureBox.IconColor = System.Drawing.Color.MediumPurple;
+            this.TitleIconPictureBox.IconSize = 38;
+            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 6);
+            this.TitleIconPictureBox.Name = "TitleIconPictureBox";
+            this.TitleIconPictureBox.Size = new System.Drawing.Size(38, 38);
+            this.TitleIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.TitleIconPictureBox.TabIndex = 0;
+            this.TitleIconPictureBox.TabStop = false;
+            // 
+            // DeskTopPanel
+            // 
+            this.DeskTopPanel.Controls.Add(this.SubDeskTopPanel);
+            this.DeskTopPanel.Controls.Add(this.TopPanel);
+            this.DeskTopPanel.Controls.Add(this.PanelSideMenue);
+            this.DeskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeskTopPanel.Location = new System.Drawing.Point(0, 38);
+            this.DeskTopPanel.Name = "DeskTopPanel";
+            this.DeskTopPanel.Size = new System.Drawing.Size(1004, 599);
+            this.DeskTopPanel.TabIndex = 14;
+            // 
+            // SubDeskTopPanel
+            // 
+            this.SubDeskTopPanel.Controls.Add(this.CasesPictureBox);
+            this.SubDeskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubDeskTopPanel.Location = new System.Drawing.Point(177, 48);
+            this.SubDeskTopPanel.Name = "SubDeskTopPanel";
+            this.SubDeskTopPanel.Size = new System.Drawing.Size(827, 551);
+            this.SubDeskTopPanel.TabIndex = 14;
+            // 
+            // CasesPictureBox
+            // 
+            this.CasesPictureBox.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.viktor_talashuk_05HLFQu8bFw_unsplash;
+            this.CasesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CasesPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CasesPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.CasesPictureBox.Name = "CasesPictureBox";
+            this.CasesPictureBox.Size = new System.Drawing.Size(827, 551);
+            this.CasesPictureBox.TabIndex = 13;
+            this.CasesPictureBox.TabStop = false;
             // 
             // MainMenuFormAD
             // 
@@ -556,18 +556,19 @@
             this.Name = "MainMenuFormAD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Activated += new System.EventHandler(this.MainMenuFormAD_Activated);
             this.SizeChanged += new System.EventHandler(this.MainMenuFormAD_SizeChanged);
             this.PanelSideMenue.ResumeLayout(false);
+            this.CasesSubMenuePanel.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.BorderPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).EndInit();
             this.DeskTopPanel.ResumeLayout(false);
             this.SubDeskTopPanel.ResumeLayout(false);
-            this.CasesSubMenuePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CasesPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,7 +598,7 @@
         private FontAwesome.Sharp.IconButton CasesButton;
         private FontAwesome.Sharp.IconButton TeamsButton;
         private FontAwesome.Sharp.IconButton MembersButton;
-        private FontAwesome.Sharp.IconButton HelpButton;
+        private new FontAwesome.Sharp.IconButton HelpButton;
         private FontAwesome.Sharp.IconButton ReferenceButton;
     }
 }

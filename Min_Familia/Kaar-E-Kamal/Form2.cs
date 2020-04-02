@@ -34,11 +34,10 @@ namespace Kaar_E_Kamal
         }
         #endregion
 
-        #region Functions
+        #region Extra Functions
         private void CustomizedDesign()
         {
-            LeftBorderButton = new Panel();
-            LeftBorderButton.Size = new Size(7, 40);
+            LeftBorderButton = new Panel{Size = new Size(7, 40)}; // Initializing With Desired Size
             PanelSideMenue.Controls.Add(LeftBorderButton);
             CasesSubMenuePanel.Visible = false;
             CasesPictureBox.Visible = false;
@@ -151,6 +150,17 @@ namespace Kaar_E_Kamal
             Titlelabel.Text = "Home";
             HideSubMenue();
         }
+                    //To check Child forms of Child Forms.
+        private bool GrandChildFormActived()
+        {
+            foreach (Form Child in Application.OpenForms)
+                if (((string)Child.Tag == "Confirmation") || ((string)Child.Tag == "MembersDetails") || ((string)Child.Tag == "TeamDetailsForm") || ((string)Child.Tag == "TeamMemberDetailsForm") || ((string)Child.Tag == "CasesInformationForm") || ((string)Child.Tag == "ReferencesDetails"))
+                {
+                    Child.BringToFront();
+                    return true;
+                }
+            return false;
+        }
         #endregion
 
         #region Events
@@ -230,6 +240,11 @@ namespace Kaar_E_Kamal
             CurrentChildForm?.Hide();     // ? to check the null reference
 
         }
+
+        private void MainMenuFormAD_Activated(object sender, EventArgs e)
+        {
+            GrandChildFormActived();
+        }
         #endregion
 
         #region FormMovement
@@ -256,6 +271,8 @@ namespace Kaar_E_Kamal
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
+                FormBorderStyle = FormBorderStyle.Sizable; // Just to solve the Maximization issue
+                FormBorderStyle = FormBorderStyle.None;
                 MaximizeIconButton.IconChar = IconChar.WindowRestore;
             }
             else

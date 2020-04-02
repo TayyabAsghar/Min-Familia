@@ -293,6 +293,8 @@ namespace Kaar_E_Kamal
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
+                FormBorderStyle = FormBorderStyle.Sizable; // Just to solve the Maximization issue
+                FormBorderStyle = FormBorderStyle.None;
                 MaximizeIconButton.IconChar = IconChar.WindowRestore;
             }
             else

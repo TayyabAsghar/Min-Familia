@@ -33,5 +33,16 @@ namespace Kaar_E_Kamal.Properties {
                 return ((string)(this["Min_FamiliaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Famil" +
+            "ia;Integrated Security=True")]
+        public string Non_Profit_Min_FamiliaConnectionString {
+            get {
+                return ((string)(this["Non_Profit_Min_FamiliaConnectionString"]));
+            }
+        }
     }
 }

@@ -38,7 +38,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Top = new System.Windows.Forms.Panel();
+            this.TopPanel = new System.Windows.Forms.Panel();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.HeadingLable = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.Col8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddIconButton = new FontAwesome.Sharp.IconButton();
-            this.Top.SuspendLayout();
+            this.TopPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
             this.HidenPanel.SuspendLayout();
             this.RightPanel.SuspendLayout();
@@ -71,14 +71,14 @@
             // 
             // Top
             // 
-            this.Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.Top.Controls.Add(this.SearchPanel);
-            this.Top.Controls.Add(this.HeadingLable);
-            this.Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Top.Location = new System.Drawing.Point(17, 0);
-            this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(912, 33);
-            this.Top.TabIndex = 55;
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.TopPanel.Controls.Add(this.SearchPanel);
+            this.TopPanel.Controls.Add(this.HeadingLable);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(17, 0);
+            this.TopPanel.Name = "Top";
+            this.TopPanel.Size = new System.Drawing.Size(912, 33);
+            this.TopPanel.TabIndex = 55;
             // 
             // SearchPanel
             // 
@@ -450,14 +450,14 @@
             this.ClientSize = new System.Drawing.Size(929, 484);
             this.Controls.Add(this.CasesGrid);
             this.Controls.Add(this.HidenPanel);
-            this.Controls.Add(this.Top);
+            this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LeftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CasesForm";
             this.Tag = "Cases";
-            this.Top.ResumeLayout(false);
-            this.Top.PerformLayout();
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             this.HidenPanel.ResumeLayout(false);
@@ -468,7 +468,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel Top;
+        private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label HeadingLable;
