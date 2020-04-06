@@ -43,11 +43,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BorderPanel = new System.Windows.Forms.Panel();
+            this.CloseIconButton = new FontAwesome.Sharp.IconButton();
             this.MemberGrid = new System.Windows.Forms.DataGridView();
-            this.NameBox = new System.Windows.Forms.TextBox();
-            this.CNICBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,9 +52,12 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.CNICBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.CancelIconButton = new FontAwesome.Sharp.IconButton();
             this.AddIconButton = new FontAwesome.Sharp.IconButton();
-            this.CloseIconButton = new FontAwesome.Sharp.IconButton();
             this.HeadingPanel.SuspendLayout();
             this.BorderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberGrid)).BeginInit();
@@ -121,6 +121,24 @@
             this.BorderPanel.Size = new System.Drawing.Size(800, 28);
             this.BorderPanel.TabIndex = 97;
             // 
+            // CloseIconButton
+            // 
+            this.CloseIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseIconButton.FlatAppearance.BorderSize = 0;
+            this.CloseIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
+            this.CloseIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CloseIconButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.CloseIconButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.CloseIconButton.IconSize = 22;
+            this.CloseIconButton.Location = new System.Drawing.Point(763, 0);
+            this.CloseIconButton.Name = "CloseIconButton";
+            this.CloseIconButton.Rotation = 0D;
+            this.CloseIconButton.Size = new System.Drawing.Size(37, 28);
+            this.CloseIconButton.TabIndex = 0;
+            this.CloseIconButton.UseVisualStyleBackColor = true;
+            this.CloseIconButton.Click += new System.EventHandler(this.CloseIconButton_Click);
+            // 
             // MemberGrid
             // 
             this.MemberGrid.AllowUserToAddRows = false;
@@ -175,46 +193,6 @@
             this.MemberGrid.Size = new System.Drawing.Size(634, 145);
             this.MemberGrid.TabIndex = 108;
             this.MemberGrid.DoubleClick += new System.EventHandler(this.MemberGrid_DoubleClick);
-            // 
-            // NameBox
-            // 
-            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameBox.Location = new System.Drawing.Point(181, 135);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(176, 22);
-            this.NameBox.TabIndex = 107;
-            this.NameBox.TextChanged += new System.EventHandler(this.Box_TextChanged);
-            // 
-            // CNICBox
-            // 
-            this.CNICBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CNICBox.Location = new System.Drawing.Point(536, 135);
-            this.CNICBox.Name = "CNICBox";
-            this.CNICBox.Size = new System.Drawing.Size(176, 22);
-            this.CNICBox.TabIndex = 106;
-            this.CNICBox.TextChanged += new System.EventHandler(this.Box_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(74, 136);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
-            this.label9.TabIndex = 105;
-            this.label9.Text = "Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(427, 136);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 17);
-            this.label8.TabIndex = 104;
-            this.label8.Text = "CNIC";
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -300,6 +278,46 @@
             this.Col6.ReadOnly = true;
             this.Col6.Width = 5;
             // 
+            // NameBox
+            // 
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(181, 135);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(176, 22);
+            this.NameBox.TabIndex = 107;
+            this.NameBox.TextChanged += new System.EventHandler(this.Box_TextChanged);
+            // 
+            // CNICBox
+            // 
+            this.CNICBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CNICBox.Location = new System.Drawing.Point(536, 135);
+            this.CNICBox.Name = "CNICBox";
+            this.CNICBox.Size = new System.Drawing.Size(176, 22);
+            this.CNICBox.TabIndex = 106;
+            this.CNICBox.TextChanged += new System.EventHandler(this.Box_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label9.Location = new System.Drawing.Point(74, 136);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.TabIndex = 105;
+            this.label9.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label8.Location = new System.Drawing.Point(427, 136);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 17);
+            this.label8.TabIndex = 104;
+            this.label8.Text = "CNIC";
+            // 
             // CancelIconButton
             // 
             this.CancelIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
@@ -342,24 +360,6 @@
             this.AddIconButton.UseVisualStyleBackColor = false;
             this.AddIconButton.Click += new System.EventHandler(this.AddIconButton_Click);
             // 
-            // CloseIconButton
-            // 
-            this.CloseIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseIconButton.FlatAppearance.BorderSize = 0;
-            this.CloseIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
-            this.CloseIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.CloseIconButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.CloseIconButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.CloseIconButton.IconSize = 22;
-            this.CloseIconButton.Location = new System.Drawing.Point(763, 0);
-            this.CloseIconButton.Name = "CloseIconButton";
-            this.CloseIconButton.Rotation = 0D;
-            this.CloseIconButton.Size = new System.Drawing.Size(37, 28);
-            this.CloseIconButton.TabIndex = 0;
-            this.CloseIconButton.UseVisualStyleBackColor = true;
-            this.CloseIconButton.Click += new System.EventHandler(this.CloseIconButton_Click);
-            // 
             // TeamMemberDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,7 +380,7 @@
             this.Controls.Add(this.BorderPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TeamMemberDetailsForm";
-            this.Tag = "Members";
+            this.Tag = "";
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
             this.BorderPanel.ResumeLayout(false);

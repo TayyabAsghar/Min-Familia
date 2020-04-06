@@ -11,7 +11,7 @@ namespace Kaar_E_Kamal
         {
             InitializeComponent();
             PopulateGrid("SELECT * FROM Familia_MembersData");
-            
+
             if (Person == 'M')
             {
                 RightPanel.Hide();
@@ -43,13 +43,13 @@ namespace Kaar_E_Kamal
                             Rows.CreateCells(MemberGrid);       // Create cells in DataGridViewRows Same as MemberGrid
 
                             Rows.Cells[0].Value = Count++;
-                            Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_MembersData_Name"]);
-                            Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_MembersData_CNIC"]);
-                            Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_MembersData_Email"]);
-                            Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_MembersData_Phone"]);
-                            Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_MembersData_Address"]);
-                            Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_MembersData_Gender"]);
-                            Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_MembersData_Team_ID"]);
+                            Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_Member_Name"]);
+                            Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Member_CNIC"]);
+                            Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Member_Email"]);
+                            Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Member_Phone"]);
+                            Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_Member_Address"]);
+                            Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
+                            Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_Member_Team_ID"]);
 
                             MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
                         }
@@ -58,6 +58,7 @@ namespace Kaar_E_Kamal
             }
             catch
             {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
                 Application.Exit();
             }
         }
@@ -76,7 +77,7 @@ namespace Kaar_E_Kamal
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
-            PopulateGrid("Select * From Familia_MembersData WHERE ");
+            //PopulateGrid("Select * From Familia_MembersData WHERE ");
         }
         
         private void SearchBox_Leave(object sender, EventArgs e)
@@ -94,13 +95,19 @@ namespace Kaar_E_Kamal
 
         #region Events
         private void AddIconButton_Click(object sender, EventArgs e)
-        {
-            new MemberDetailsForm().Show();
+        {           // Send the Parent Form Name.
+            DialogResult Executed = new DetailsForm("MembersForm").ShowDialog();  // It waits until form is closed.
+
+            if (Executed == DialogResult.Yes)
+                PopulateGrid("SELECT * FROM Familia_MembersData");
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            new MemberDetailsForm("Here will Go CNic").Show();
+            DialogResult Executed = new DetailsForm("MembersForm", Convert.ToString(MemberGrid.Rows[MemberGrid.CurrentRow.Index].Cells[2].Value)).ShowDialog();
+
+            if (Executed == DialogResult.Yes)
+                PopulateGrid("SELECT * FROM Familia_MembersData");
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -108,24 +115,5 @@ namespace Kaar_E_Kamal
             PopulateGrid("SELECT * FROM Familia_MembersData");
         }
         #endregion
-
-        #region Extra Functions
-        private bool SubFormActivated()   // Return bool if Form activated and BringToFront it.
-        {
-            foreach (Form Child in Application.OpenForms)
-                if (((string)Child.Tag == "Confirmation") || ((string)Child.Tag == "MembersDetails"))
-                {
-                    Child.BringToFront();
-                    return true;
-                }
-            return false;
-        }
-        #endregion
-
-        private void MembersForm_Activated(object sender, EventArgs e)
-        {
-            if (!SubFormActivated())
-                PopulateGrid("SELECT * FROM Familia_MembersData");
-        }
     }
 }

@@ -7,19 +7,26 @@ using System.Windows.Forms;
 
 namespace Kaar_E_Kamal
 {
-    public partial class MemberDetailsForm : Form
+    public partial class DetailsForm : Form
     {
         #region Constructor
-        public MemberDetailsForm()
+        public DetailsForm(string Parent)
         {
             InitializeComponent();
-            HeadingLabel.Text = "Add Member";
+            if (Parent == "MembersForm")
+                HeadingLabel.Text = "Add Member";
+            else
+            {
+                HeadingLabel.Text = "Add Reference";
+                Passlabel.Hide();
+                PasswordBox.Hide();
+            }
         }
 
-        public MemberDetailsForm(string MemberCNIC)
+        public DetailsForm(string Parent, string CNIC)
         {
             InitializeComponent();
-            LoadForm(MemberCNIC);
+            LoadForm(Parent, CNIC);
         }
         #endregion
 
@@ -28,13 +35,18 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Events
-        public void LoadForm(string MemberCNIC)
+        public void LoadForm(string Parent, string CNIC)
         {
+            if (Parent == "MembersForm")
             HeadingLabel.Text = "Update Member";
+            else
+            {
+                HeadingLabel.Text = "Update Reference";
+                Passlabel.Hide();
+                PasswordBox.Hide();
+            }
             AddIconButton.Text = "Update";
-            // put Query Here
-
-            CNICBox.ReadOnly = true;
+            CNICMaskedBox.ReadOnly = true;
         }
 
         #region Leave Box
@@ -55,7 +67,7 @@ namespace Kaar_E_Kamal
             NameWarningLabel.ForeColor = Color.FromArgb(48, 69, 99);
         }
 
-        private void CNICBox_Enter(object sender, EventArgs e)
+        private void CNICMaskedBox_Enter(object sender, EventArgs e)
         {
             CNICWarningLabel.ForeColor = Color.FromArgb(48, 69, 99);
         }
@@ -92,9 +104,10 @@ namespace Kaar_E_Kamal
             LeaveBox(NameBox, NameWarningLabel);
         }
 
-        private void CNICBox_Leave(object sender, EventArgs e)
+        private void CNICMaskedBox_Leave(object sender, EventArgs e)
         {
-            LeaveBox(CNICBox, CNICWarningLabel);
+            if (!CNICMaskedBox.MaskCompleted || !AlreadyAdded())  // AlredyAdded() will only run of MaskCompleted. 
+                CNICWarningLabel.ForeColor = Color.Red;
         }
 
         private void EmailBox_Leave(object sender, EventArgs e)
@@ -115,6 +128,7 @@ namespace Kaar_E_Kamal
                 GenderBox.Select(0, 0);
         }
 
+        #region Click Events
         private void PasswordBox_Leave(object sender, EventArgs e)
         {
             LeaveBox(PasswordBox, PasswordWarningLabel);
@@ -133,29 +147,66 @@ namespace Kaar_E_Kamal
         {
             if (!WarningsActivated())
             {
-                using (SqlCommand Command = new SqlCommand(""))
+                string Query = "";
+                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
                 {
                     //Add
                     //MinFamiliaCon.Open();
-                    
-                    this.Close(); 
+
+                    this.DialogResult = DialogResult.Yes;
+                    this.Close();
                 }
             }
         }
 
         private void CancelIconButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Abort;
             this.Close();
         }
 
+        private void FormPanel_Click(object sender, EventArgs e)
+        {
+            FormPanel.Focus();
+        }
+        #endregion
+
         private void GenderBox_TextChanged(object sender, EventArgs e)
         {
-            if (!GenderBox.Items.Contains(GenderBox.Text))
+            if (!GenderBox.Items.Contains(GenderBox.Text))      // So user can only select from List.
                 GenderBox.Text = "";
         }
         #endregion
 
         #region Extra Functions
+
+        private bool AlreadyAdded()
+        {
+            try
+            {
+                string Query = "SELECT CASE WHEN EXISTS (SELECT 1 FROM Familia_AdminData WHERE Familia_Admin_CNIC = @CNIC) OR EXISTS (SELECT 1 FROM Familia_MembersData WHERE Familia_Member_CNIC = @CNIC) THEN 1 ELSE 0 END OPTION (OPTIMIZE FOR UNKNOWN);";
+
+                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
+                {
+                    Command.Parameters.AddWithValue("@CNIC", CNICMaskedBox.Text);
+                    MinFamiliaCon.Open();
+
+                    using (SqlDataReader DataReader = Command.ExecuteReader())
+                    {
+                        if (DataReader.Read())
+                            return Convert.ToBoolean(DataReader["Familia_Member_CNIC"]);
+                        return false;                 // Maybe it will never executed.
+                    }
+                }
+            }
+            catch
+            {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
+                Application.Exit();
+                return true;                 // Maybe it will never executed.
+            }
+        }
+
         private bool WarningsActivated()
         {
             if (NameBox.Text == "")
@@ -170,7 +221,7 @@ namespace Kaar_E_Kamal
             if (PasswordBox.Text == "")
                 PasswordWarningLabel.ForeColor = Color.Red;
 
-            if (CNICBox.Text == "")
+            if (!CNICMaskedBox.MaskCompleted)
                 CNICWarningLabel.ForeColor = Color.Red;
 
             if (NumberBox.Text == "")
@@ -192,7 +243,7 @@ namespace Kaar_E_Kamal
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void MemberDetailsForm_MouseDown(object sender, MouseEventArgs e)
+        private void BorderPanel_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
@@ -201,7 +252,8 @@ namespace Kaar_E_Kamal
         // Close
         private void CloseIconButton_Click(object sender, EventArgs e)
         {
-            Close();
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
         }
         #endregion
     }

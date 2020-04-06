@@ -21,7 +21,7 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Colors
-        private struct RGBColors
+        private struct RGBColors   // Colors to use at different places
         {
             public static Color TopButtonColor = Color.FromArgb(11, 7, 17);
             public static Color SubButtonColor = Color.FromArgb(35, 32, 39);
@@ -154,7 +154,7 @@ namespace Kaar_E_Kamal
         private bool GrandChildFormActived()
         {
             foreach (Form Child in Application.OpenForms)
-                if (((string)Child.Tag == "Confirmation") || ((string)Child.Tag == "MembersDetails") || ((string)Child.Tag == "TeamDetailsForm") || ((string)Child.Tag == "TeamMemberDetailsForm") || ((string)Child.Tag == "CasesInformationForm") || ((string)Child.Tag == "ReferencesDetails"))
+                if (((string)Child.Tag == "TeamDetailsForm") || ((string)Child.Tag == "TeamMemberDetailsForm") || ((string)Child.Tag == "CasesInformationForm"))
                 {
                     Child.BringToFront();
                     return true;

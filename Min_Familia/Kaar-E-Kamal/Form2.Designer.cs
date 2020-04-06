@@ -480,7 +480,7 @@
             this.Titlelabel.AutoSize = true;
             this.Titlelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titlelabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Titlelabel.Location = new System.Drawing.Point(67, 20);
+            this.Titlelabel.Location = new System.Drawing.Point(67, 28);
             this.Titlelabel.Name = "Titlelabel";
             this.Titlelabel.Size = new System.Drawing.Size(45, 16);
             this.Titlelabel.TabIndex = 1;
@@ -494,7 +494,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(177, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(827, 48);
+            this.TopPanel.Size = new System.Drawing.Size(827, 53);
             this.TopPanel.TabIndex = 12;
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             // 
@@ -505,7 +505,7 @@
             this.TitleIconPictureBox.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.TitleIconPictureBox.IconColor = System.Drawing.Color.MediumPurple;
             this.TitleIconPictureBox.IconSize = 38;
-            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 6);
+            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 10);
             this.TitleIconPictureBox.Name = "TitleIconPictureBox";
             this.TitleIconPictureBox.Size = new System.Drawing.Size(38, 38);
             this.TitleIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -527,9 +527,9 @@
             // 
             this.SubDeskTopPanel.Controls.Add(this.CasesPictureBox);
             this.SubDeskTopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SubDeskTopPanel.Location = new System.Drawing.Point(177, 48);
+            this.SubDeskTopPanel.Location = new System.Drawing.Point(177, 53);
             this.SubDeskTopPanel.Name = "SubDeskTopPanel";
-            this.SubDeskTopPanel.Size = new System.Drawing.Size(827, 551);
+            this.SubDeskTopPanel.Size = new System.Drawing.Size(827, 546);
             this.SubDeskTopPanel.TabIndex = 14;
             // 
             // CasesPictureBox
@@ -539,7 +539,7 @@
             this.CasesPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CasesPictureBox.Location = new System.Drawing.Point(0, 0);
             this.CasesPictureBox.Name = "CasesPictureBox";
-            this.CasesPictureBox.Size = new System.Drawing.Size(827, 551);
+            this.CasesPictureBox.Size = new System.Drawing.Size(827, 546);
             this.CasesPictureBox.TabIndex = 13;
             this.CasesPictureBox.TabStop = false;
             // 

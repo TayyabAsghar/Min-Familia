@@ -418,7 +418,7 @@
             this.Controls.Add(this.BorderPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TeamDetailsForm";
-            this.Tag = "Team";
+            this.Tag = "";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TeamDetailsForm_MouseDown);
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();

@@ -192,14 +192,14 @@
             this.HeadingLable.TabIndex = 0;
             this.HeadingLable.Text = "List Of All References";
             // 
-            // Top
+            // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.TopPanel.Controls.Add(this.SearchPanel);
             this.TopPanel.Controls.Add(this.HeadingLable);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel.Name = "Top";
+            this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(800, 33);
             this.TopPanel.TabIndex = 55;
             // 

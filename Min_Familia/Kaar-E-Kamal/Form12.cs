@@ -16,10 +16,11 @@ namespace Kaar_E_Kamal
         private bool TeamHead { get; set; }
         #endregion
 
-        public MainMenuFormMember(string CNIC)
+        public MainMenuFormMember(string Email)
         {
             InitializeComponent();
             CustomizedDesign();
+
             TeamHead = false;
         }
 
@@ -40,8 +41,7 @@ namespace Kaar_E_Kamal
         #region Functions
         private void CustomizedDesign()
         {
-            LeftBorderButton = new Panel();
-            LeftBorderButton.Size = new Size(7, 40);
+            LeftBorderButton = new Panel {Size = new Size(7, 40)};
             PanelSideMenue.Controls.Add(LeftBorderButton);
             CasesSubMenuePanel.Visible = false;
             TeamsSubMenuePanel.Visible = false;

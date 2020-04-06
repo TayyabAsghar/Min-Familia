@@ -82,7 +82,7 @@ namespace Kaar_E_Kamal
         {
             if (!FormOpen("ReferencesDetails"))
             {
-                new MemberDetailsForm().Show();
+                new DetailsForm("ReferencesForm").Show();
                 PopulateGrid();
             }
         }
@@ -91,14 +91,14 @@ namespace Kaar_E_Kamal
         {
             if (!FormOpen("ReferencesDetails"))
             {
-                new MemberDetailsForm("Reference ID").Show();
+                new DetailsForm("ReferencesForm", "").Show();
                 PopulateGrid();
             }
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            if (!FormOpen("ReferencesDetails"))
+            if (!FormOpen(""))
             {
                 PopulateGrid();
             }

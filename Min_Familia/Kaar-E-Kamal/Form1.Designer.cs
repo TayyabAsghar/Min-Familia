@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.FormPanel = new System.Windows.Forms.Panel();
+            this.PassBox = new System.Windows.Forms.TextBox();
             this.SignInWarningLabel = new System.Windows.Forms.Label();
             this.EmailWarningLabel = new System.Windows.Forms.Label();
             this.PasswordWarningLabel = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.NamePic = new System.Windows.Forms.PictureBox();
             this.LoginPic = new System.Windows.Forms.PictureBox();
             this.SignInButton = new System.Windows.Forms.Button();
-            this.PassBox = new System.Windows.Forms.TextBox();
             this.FormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmailPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminPic)).BeginInit();
@@ -85,6 +85,23 @@
             this.FormPanel.Size = new System.Drawing.Size(362, 541);
             this.FormPanel.TabIndex = 0;
             this.FormPanel.Click += new System.EventHandler(this.FormPanel_Click);
+            // 
+            // PassBox
+            // 
+            this.PassBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.PassBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PassBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PassBox.ForeColor = System.Drawing.Color.Gray;
+            this.PassBox.Location = new System.Drawing.Point(72, 230);
+            this.PassBox.Name = "PassBox";
+            this.PassBox.Size = new System.Drawing.Size(236, 19);
+            this.PassBox.TabIndex = 51;
+            this.PassBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\-@#$%&!<>^,*`~?+:,.|])(?!.*[=;])(?=.{8," +
+    "})";
+            this.PassBox.Text = "Password";
+            this.PassBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PassBox.Enter += new System.EventHandler(this.PassBox_Enter);
+            this.PassBox.Leave += new System.EventHandler(this.PassBox_Leave);
             // 
             // SignInWarningLabel
             // 
@@ -299,23 +316,6 @@
             this.SignInButton.Text = "Sign In";
             this.SignInButton.UseVisualStyleBackColor = false;
             this.SignInButton.Click += new System.EventHandler(this.LoginButton_Click);
-            // 
-            // PassBox
-            // 
-            this.PassBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.PassBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PassBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassBox.ForeColor = System.Drawing.Color.Gray;
-            this.PassBox.Location = new System.Drawing.Point(72, 230);
-            this.PassBox.Name = "PassBox";
-            this.PassBox.Size = new System.Drawing.Size(236, 19);
-            this.PassBox.TabIndex = 51;
-            this.PassBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\-@#$%&!<>^,*`~?+:,.|])(?!.*[=;])(?=.{8," +
-    "})";
-            this.PassBox.Text = "Password";
-            this.PassBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PassBox.Enter += new System.EventHandler(this.PassBox_Enter);
-            this.PassBox.Leave += new System.EventHandler(this.PassBox_Leave);
             // 
             // LoginForm
             // 

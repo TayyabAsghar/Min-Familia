@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -16,7 +17,8 @@ namespace Kaar_E_Kamal
         }
 
         #region Fields
-        private readonly SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
+        //ConfigurationManager.ConnectionStrings["Non_Profit_Min_Familia"];
+        public readonly SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
         private int UserSelection { get; set; }  // 1 for Admin, 0 For Member
         #endregion
 
@@ -121,10 +123,17 @@ namespace Kaar_E_Kamal
         
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (!WarningsActivation())
+            if (!WarningsActivation() || (1 == 1))
             {
-                if (!UserValidated())
-                    new ConfirmationForm("Some Fields are Incorrect...").Show();
+                int Check = UserValidated();
+
+                if (Check == 0  & (false))
+                    new ConfirmationForm("Some Fields are Incorrect.").Show();
+                else if (Check == -1 & (false))  // Some Error Occurred.
+                {
+                    DialogResult Dialog = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error");
+                    Application.Exit();
+                }
                 else
                 {
                     this.Hide();
@@ -212,14 +221,14 @@ namespace Kaar_E_Kamal
             return false;
         }
 
-        private bool UserValidated()
+        private int UserValidated()
         {
             String Query;
 
             if (UserSelection == 1)
                 Query = "SELECT Familia_Admin_Name, Familia_Admin_Password FROM Familia_AdminData WHERE Familia_Admin_Email = '" + EmailBox.Text + "'";
             else
-                Query = "SELECT Familia_Admin_Name, Familia_Admin_Password FROM Familia_AdminData WHERE Familia_Admin_Email = '" + EmailBox.Text + "'";
+                Query = "SELECT Familia_Member_Name, Familia_Member_Password FROM Familia_MembersData WHERE Familia_Member_Email = '" + EmailBox.Text + "'";
             // Just to Learn try/catch and finally block.
             try
             {
@@ -232,10 +241,10 @@ namespace Kaar_E_Kamal
                     if (DataReader.Read())      // Reading Data From Con.
                     {
                         if ((NameBox.Text == Convert.ToString(DataReader["Familia_Admin_Name"]) & (PassBox.Text == Convert.ToString(DataReader["Familia_Admin_Password"]))))
-                            return true;
-                        return false;
+                            return 1;
+                        return 0;
                     }
-                    return false;
+                    return 0;
                 }
                 finally          // Use to hold Close resources statements
                 {
@@ -243,10 +252,9 @@ namespace Kaar_E_Kamal
                     MinFamiliaCon.Close();
                 }
             }
-            catch      // To catch any Error Occurred due to Data Connection;
-            {
-                new ConfirmationForm("Unexpected Error Occurred.").Show();
-                return false;
+            catch      // To catch any Error Occurred due to Data Connection it return -1
+            {     
+                return -1;
             }
         }
         #endregion
