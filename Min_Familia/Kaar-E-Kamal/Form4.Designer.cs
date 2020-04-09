@@ -36,6 +36,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.FormPanel = new System.Windows.Forms.Panel();
+            this.PasswordBox = new System.Windows.Forms.TextBox();
+            this.NumberBox = new System.Windows.Forms.TextBox();
+            this.EmailBox = new System.Windows.Forms.TextBox();
             this.CNICMaskedBox = new System.Windows.Forms.MaskedTextBox();
             this.PasswordWarningLabel = new System.Windows.Forms.Label();
             this.AddressWarningLabel = new System.Windows.Forms.Label();
@@ -46,19 +49,16 @@
             this.NameWarningLabel = new System.Windows.Forms.Label();
             this.AddressRichBox = new System.Windows.Forms.RichTextBox();
             this.GenderBox = new System.Windows.Forms.ComboBox();
+            this.NameBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Passlabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CancelIconButton = new FontAwesome.Sharp.IconButton();
-            this.AddIconButton = new FontAwesome.Sharp.IconButton();
+            this.IconButton = new FontAwesome.Sharp.IconButton();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.NameBox = new System.Windows.Forms.TextBox();
-            this.EmailBox = new System.Windows.Forms.TextBox();
-            this.NumberBox = new System.Windows.Forms.TextBox();
-            this.PasswordBox = new System.Windows.Forms.TextBox();
             this.BorderPanel.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
             this.FormPanel.SuspendLayout();
@@ -161,7 +161,7 @@
             this.FormPanel.Controls.Add(this.Passlabel);
             this.FormPanel.Controls.Add(this.label3);
             this.FormPanel.Controls.Add(this.CancelIconButton);
-            this.FormPanel.Controls.Add(this.AddIconButton);
+            this.FormPanel.Controls.Add(this.IconButton);
             this.FormPanel.Controls.Add(this.label10);
             this.FormPanel.Controls.Add(this.label9);
             this.FormPanel.Controls.Add(this.label8);
@@ -173,10 +173,45 @@
             this.FormPanel.TabIndex = 0;
             this.FormPanel.Click += new System.EventHandler(this.FormPanel_Click);
             // 
+            // PasswordBox
+            // 
+            this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBox.Location = new System.Drawing.Point(136, 209);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(215, 22);
+            this.PasswordBox.TabIndex = 109;
+            this.PasswordBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\-@#$%&!<>^,*`~?+:,.|])(?!.*[=;])(?=.{8," +
+    "})";
+            this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            this.PasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
+            // 
+            // NumberBox
+            // 
+            this.NumberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumberBox.Location = new System.Drawing.Point(136, 154);
+            this.NumberBox.Name = "NumberBox";
+            this.NumberBox.Size = new System.Drawing.Size(215, 22);
+            this.NumberBox.TabIndex = 108;
+            this.NumberBox.Tag = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
+            this.NumberBox.Enter += new System.EventHandler(this.NumberBox_Enter);
+            this.NumberBox.Leave += new System.EventHandler(this.NumberBox_Leave);
+            // 
+            // EmailBox
+            // 
+            this.EmailBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailBox.Location = new System.Drawing.Point(136, 95);
+            this.EmailBox.Name = "EmailBox";
+            this.EmailBox.Size = new System.Drawing.Size(215, 22);
+            this.EmailBox.TabIndex = 107;
+            this.EmailBox.Tag = "[a-z0-9!#$%&\'*+/?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0" +
+    "-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            this.EmailBox.Enter += new System.EventHandler(this.EmailBox_Enter);
+            this.EmailBox.Leave += new System.EventHandler(this.EmailBox_Leave);
+            // 
             // CNICMaskedBox
             // 
             this.CNICMaskedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CNICMaskedBox.Location = new System.Drawing.Point(530, 59);
+            this.CNICMaskedBox.Location = new System.Drawing.Point(530, 37);
             this.CNICMaskedBox.Mask = "00000-0000000-0";
             this.CNICMaskedBox.Name = "CNICMaskedBox";
             this.CNICMaskedBox.Size = new System.Drawing.Size(176, 22);
@@ -203,7 +238,7 @@
             this.AddressWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.AddressWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddressWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.AddressWarningLabel.Location = new System.Drawing.Point(712, 165);
+            this.AddressWarningLabel.Location = new System.Drawing.Point(712, 161);
             this.AddressWarningLabel.Name = "AddressWarningLabel";
             this.AddressWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.AddressWarningLabel.TabIndex = 104;
@@ -215,7 +250,7 @@
             this.NumberWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.NumberWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumberWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.NumberWarningLabel.Location = new System.Drawing.Point(357, 161);
+            this.NumberWarningLabel.Location = new System.Drawing.Point(357, 157);
             this.NumberWarningLabel.Name = "NumberWarningLabel";
             this.NumberWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.NumberWarningLabel.TabIndex = 103;
@@ -227,7 +262,7 @@
             this.CNICWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.CNICWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CNICWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.CNICWarningLabel.Location = new System.Drawing.Point(712, 62);
+            this.CNICWarningLabel.Location = new System.Drawing.Point(712, 40);
             this.CNICWarningLabel.Name = "CNICWarningLabel";
             this.CNICWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.CNICWarningLabel.TabIndex = 102;
@@ -239,7 +274,7 @@
             this.GenderWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.GenderWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenderWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.GenderWarningLabel.Location = new System.Drawing.Point(712, 111);
+            this.GenderWarningLabel.Location = new System.Drawing.Point(712, 97);
             this.GenderWarningLabel.Name = "GenderWarningLabel";
             this.GenderWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.GenderWarningLabel.TabIndex = 101;
@@ -251,7 +286,7 @@
             this.EmailWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.EmailWarningLabel.Location = new System.Drawing.Point(357, 113);
+            this.EmailWarningLabel.Location = new System.Drawing.Point(357, 99);
             this.EmailWarningLabel.Name = "EmailWarningLabel";
             this.EmailWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.EmailWarningLabel.TabIndex = 100;
@@ -263,7 +298,7 @@
             this.NameWarningLabel.BackColor = System.Drawing.Color.Transparent;
             this.NameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameWarningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
-            this.NameWarningLabel.Location = new System.Drawing.Point(357, 63);
+            this.NameWarningLabel.Location = new System.Drawing.Point(357, 41);
             this.NameWarningLabel.Name = "NameWarningLabel";
             this.NameWarningLabel.Size = new System.Drawing.Size(16, 20);
             this.NameWarningLabel.TabIndex = 99;
@@ -272,9 +307,9 @@
             // AddressRichBox
             // 
             this.AddressRichBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressRichBox.Location = new System.Drawing.Point(530, 161);
+            this.AddressRichBox.Location = new System.Drawing.Point(530, 157);
             this.AddressRichBox.Name = "AddressRichBox";
-            this.AddressRichBox.Size = new System.Drawing.Size(176, 70);
+            this.AddressRichBox.Size = new System.Drawing.Size(176, 76);
             this.AddressRichBox.TabIndex = 98;
             this.AddressRichBox.Text = "";
             this.AddressRichBox.Enter += new System.EventHandler(this.AddressRichBox_Enter);
@@ -288,7 +323,7 @@
             "Male",
             "Female",
             "Unspecified"});
-            this.GenderBox.Location = new System.Drawing.Point(530, 109);
+            this.GenderBox.Location = new System.Drawing.Point(530, 95);
             this.GenderBox.Name = "GenderBox";
             this.GenderBox.Size = new System.Drawing.Size(176, 24);
             this.GenderBox.TabIndex = 97;
@@ -296,12 +331,23 @@
             this.GenderBox.Enter += new System.EventHandler(this.GenderBox_Enter);
             this.GenderBox.Leave += new System.EventHandler(this.GenderBox_Leave);
             // 
+            // NameBox
+            // 
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(136, 39);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(215, 22);
+            this.NameBox.TabIndex = 95;
+            this.NameBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
+            this.NameBox.Enter += new System.EventHandler(this.NameBox_Enter);
+            this.NameBox.Leave += new System.EventHandler(this.NameBox_Leave);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(417, 111);
+            this.label6.Location = new System.Drawing.Point(417, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 17);
             this.label6.TabIndex = 94;
@@ -323,7 +369,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(40, 64);
+            this.label3.Location = new System.Drawing.Point(40, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 92;
@@ -350,33 +396,33 @@
             this.CancelIconButton.UseVisualStyleBackColor = false;
             this.CancelIconButton.Click += new System.EventHandler(this.CancelIconButton_Click);
             // 
-            // AddIconButton
+            // IconButton
             // 
-            this.AddIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
-            this.AddIconButton.FlatAppearance.BorderSize = 0;
-            this.AddIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.AddIconButton.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddIconButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.AddIconButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.AddIconButton.IconColor = System.Drawing.Color.LightGray;
-            this.AddIconButton.IconSize = 16;
-            this.AddIconButton.Location = new System.Drawing.Point(625, 300);
-            this.AddIconButton.Name = "AddIconButton";
-            this.AddIconButton.Rotation = 0D;
-            this.AddIconButton.Size = new System.Drawing.Size(81, 32);
-            this.AddIconButton.TabIndex = 90;
-            this.AddIconButton.Text = "Add";
-            this.AddIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AddIconButton.UseVisualStyleBackColor = false;
-            this.AddIconButton.Click += new System.EventHandler(this.AddIconButton_Click);
+            this.IconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
+            this.IconButton.FlatAppearance.BorderSize = 0;
+            this.IconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.IconButton.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IconButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.IconButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.IconButton.IconColor = System.Drawing.Color.LightGray;
+            this.IconButton.IconSize = 16;
+            this.IconButton.Location = new System.Drawing.Point(625, 300);
+            this.IconButton.Name = "IconButton";
+            this.IconButton.Rotation = 0D;
+            this.IconButton.Size = new System.Drawing.Size(81, 32);
+            this.IconButton.TabIndex = 90;
+            this.IconButton.Text = "Add";
+            this.IconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.IconButton.UseVisualStyleBackColor = false;
+            this.IconButton.Click += new System.EventHandler(this.IconButton_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label10.Location = new System.Drawing.Point(421, 161);
+            this.label10.Location = new System.Drawing.Point(421, 157);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 17);
             this.label10.TabIndex = 87;
@@ -387,7 +433,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(39, 112);
+            this.label9.Location = new System.Drawing.Point(39, 98);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 17);
             this.label9.TabIndex = 86;
@@ -398,7 +444,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(39, 161);
+            this.label8.Location = new System.Drawing.Point(39, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 17);
             this.label8.TabIndex = 85;
@@ -409,55 +455,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(421, 62);
+            this.label7.Location = new System.Drawing.Point(421, 40);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 17);
             this.label7.TabIndex = 84;
             this.label7.Text = "CNIC";
-            // 
-            // NameBox
-            // 
-            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameBox.Location = new System.Drawing.Point(136, 61);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(215, 22);
-            this.NameBox.TabIndex = 95;
-            this.NameBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
-            this.NameBox.Enter += new System.EventHandler(this.NameBox_Enter);
-            this.NameBox.Leave += new System.EventHandler(this.NameBox_Leave);
-            // 
-            // EmailBox
-            // 
-            this.EmailBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailBox.Location = new System.Drawing.Point(136, 109);
-            this.EmailBox.Name = "EmailBox";
-            this.EmailBox.Size = new System.Drawing.Size(215, 22);
-            this.EmailBox.TabIndex = 107;
-            this.EmailBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
-            this.EmailBox.Enter += new System.EventHandler(this.EmailBox_Enter);
-            this.EmailBox.Leave += new System.EventHandler(this.EmailBox_Leave);
-            // 
-            // NumberBox
-            // 
-            this.NumberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumberBox.Location = new System.Drawing.Point(136, 158);
-            this.NumberBox.Name = "NumberBox";
-            this.NumberBox.Size = new System.Drawing.Size(215, 22);
-            this.NumberBox.TabIndex = 108;
-            this.NumberBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
-            this.NumberBox.Enter += new System.EventHandler(this.NumberBox_Enter);
-            this.NumberBox.Leave += new System.EventHandler(this.NumberBox_Leave);
-            // 
-            // PasswordBox
-            // 
-            this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordBox.Location = new System.Drawing.Point(136, 209);
-            this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(215, 22);
-            this.PasswordBox.TabIndex = 109;
-            this.PasswordBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
-            this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
-            this.PasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
             // 
             // DetailsForm
             // 
@@ -507,7 +509,7 @@
         private System.Windows.Forms.Label Passlabel;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton CancelIconButton;
-        private FontAwesome.Sharp.IconButton AddIconButton;
+        private FontAwesome.Sharp.IconButton IconButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

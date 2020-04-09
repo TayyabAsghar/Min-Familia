@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,34 +28,89 @@ namespace Kaar_E_Kamal
         }
         #endregion
 
-        #region ChildOpenTest
-        private bool FormOpen(string FormTag)
-        {
-            foreach (Form Child in Application.OpenForms)
-                if ((string)Child.Tag == FormTag)
-                {
-                    Child.BringToFront();
-                    return true;
-                }
-            return false;
-        }
-        #endregion
-
         #region Grid
         private void PopulateTeamGrid()
-        {//Test
-            TeamGrid.Rows.Add('1', "Drive-1", "Survey Drive #1", "Tayyab Asghar", "33303-7405121-9");
-            TeamGrid.Rows.Add('2', "Drive-2", "Survey Drive #2", "Komal Asghar", "33303-7445151-9");
-            TeamGrid.Rows.Add('3', "Drive-3", "Survey Drive #3", "Zareen Asghar", "33303-7426151-4");
+        {
+            try
+            {
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand("SELECT * FROM Familia_TeamsData", MinFamiliaCon))
+                    {
+                        MinFamiliaCon.Open();
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
+                        {
+                            int Count = 1;
+
+                            TeamGrid.Rows.Clear();                // Clearing the Rows.
+
+                            while (DataReader.Read())
+                            {
+                                DataGridViewRow Rows = new DataGridViewRow();  // Each time provide new Row.
+
+                                Rows.CreateCells(TeamGrid);       // Create cells in DataGridViewRows Same as MemberGrid
+
+                                Rows.Cells[0].Value = Count++;
+                                Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_Team_ID"]);
+                                Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Team_Name"]);
+                                Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Team_Head_Name"]);
+                                Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Team_Head_CNIC"]);
+                                
+                                TeamGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
+                            }
+                        }
+                    }
+            }
+            catch
+            {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
+                Application.Exit();
+            }
         }
 
         private void PopulateMemberGrid()
         {
+            try
+            {
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                using (SqlCommand Command = new SqlCommand("SELECT Familia_Member_Name, Familia_Member_CNIC, Familia_Member_Phone, Familia_Member_Gender FROM Familia_MembersData WHERE Familia_Member_Team_ID = @ID;", MinFamiliaCon))
+                {
+                    Command.Parameters.AddWithValue("@ID", TeamGrid.CurrentRow.Cells[1].Value);
+                    MinFamiliaCon.Open();
+
+                    using (SqlDataReader DataReader = Command.ExecuteReader())
+                    {
+                        int Count = 1;
+
+                        MemberGrid.Rows.Clear();                // Clearing the Rows.
+
+                        while (DataReader.Read())
+                        {
+                            DataGridViewRow Rows = new DataGridViewRow();  // Each time provide new Row.
+
+                            Rows.CreateCells(MemberGrid);       // Create cells in DataGridViewRows Same as MemberGrid
+
+                            Rows.Cells[0].Value = Count++;
+                            Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_Member_Name"]);
+                            Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Member_CNIC"]);
+                            Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
+                            Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Member_Phone"]);
+
+                            MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
+                Application.Exit();
+            }
         }
 
         private void TeamGrid_SelectionChanged(object sender, EventArgs e)
         {
-            PopulateMemberGrid();
+            if (MemberGrid.Visible)    // Small check to protect from fetching Data.
+                PopulateMemberGrid();
         }
 
         #endregion
@@ -63,49 +119,41 @@ namespace Kaar_E_Kamal
         #region Click
         private void AddIconButton_Click(object sender, EventArgs e)
         {
-            string Tag;
-            Form NewForm;
+            DialogResult Executed;
 
-            if (SearchPanel.Visible)
-            {
-                Tag = "Team";
-                NewForm = new TeamDetailsForm();
-            }
+            if (PartionPanel.Visible )
+                Executed = new TeamMemberDetailsForm().ShowDialog();
             else
-            {
-                Tag = "Members";
-                NewForm = new TeamMemberDetailsForm();
-            }
-
-            if (!FormOpen(Tag))
-            {
-                NewForm.Show();
+                Executed = new TeamDetailsForm().ShowDialog();
+            
+            if (DialogResult.Yes == Executed)        // To see if changes are made.
                 PopulateTeamGrid();
-            }
         }
 
+        private void AddTeamIconButton_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == new TeamDetailsForm().ShowDialog())        // To see if changes are made.
+                PopulateTeamGrid();
+        }
 
         private void UpdateIconButton_Click(object sender, EventArgs e)
         {
-                //GridView.CurrentCell.RowIndex;
-            if (!FormOpen("Team"))
-            {
-                new TeamDetailsForm("Here will Go TeamID").Show();
+            DialogResult Executed = new TeamDetailsForm(Convert.ToString(TeamGrid.CurrentRow.Cells[1].Value)).ShowDialog();
+
+            if (DialogResult.Yes == Executed)        // To see if changes are made.
                 PopulateTeamGrid();
-            }
         }
 
         private void DeleteIconButton_Click(object sender, EventArgs e)
         {
-            if (!(FormOpen("Members") || FormOpen("Team")))
-                if (SearchPanel.Visible)
-                {
-                    PopulateMemberGrid();
-                }
-                else
-                {
-                    PopulateTeamGrid();
-                }
+            if (SearchPanel.Visible)
+            {
+                PopulateMemberGrid();
+            }
+            else
+            {
+                PopulateTeamGrid();
+            }
         }
         #endregion
 
@@ -158,26 +206,26 @@ namespace Kaar_E_Kamal
         #region TextChange
         private void MemberSearchBox_TextChanged(object sender, EventArgs e)
         {
-
+            PopulateMemberGrid();
         }
 
         private void TeamSearchBox_TextChanged(object sender, EventArgs e)
         {
-
+            PopulateTeamGrid();
         }
         #endregion
 
         #region SizeChange
         private void TeamsForm_SizeChanged(object sender, EventArgs e)
         {
-            if ((TeamsForm.ActiveForm.Size.Height > 640))        // Maximized
+            if ((this.Height > 640))        // Maximized
             {
                         // Panels
                 RightBackPanel.Size = new Size(118, 0);
                 BackPartionPanel.Size = new Size(118, 0);
-                BackPartionPanel.BackColor = Color.FromArgb(40, 57, 80);
                 SearchPanel.Show();
                 PartionPanel.Hide();
+                MemberGrid.Show();
 
                 if (Person == "Admin")
                 {
@@ -202,9 +250,9 @@ namespace Kaar_E_Kamal
                     // Panels
                 RightBackPanel.Size = new Size(136, 0);
                 BackPartionPanel.Size = new Size(136, 0);
-                BackPartionPanel.BackColor = Color.FromArgb(48, 69, 99);
                 PartionPanel.Hide();
                 SearchPanel.Hide();
+                MemberGrid.Hide();
 
                 if (Person == "Admin")  // Admin Case
                 {

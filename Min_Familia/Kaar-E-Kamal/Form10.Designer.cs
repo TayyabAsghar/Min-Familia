@@ -68,9 +68,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(17, 426);
+            this.panel1.Location = new System.Drawing.Point(17, 725);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 24);
+            this.panel1.Size = new System.Drawing.Size(949, 24);
             this.panel1.TabIndex = 58;
             // 
             // RightPanel
@@ -80,9 +80,9 @@
             this.RightPanel.Controls.Add(this.UpdateIconButton);
             this.RightPanel.Controls.Add(this.AddIconButton);
             this.RightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RightPanel.Location = new System.Drawing.Point(682, 33);
+            this.RightPanel.Location = new System.Drawing.Point(966, 33);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(118, 417);
+            this.RightPanel.Size = new System.Drawing.Size(118, 716);
             this.RightPanel.TabIndex = 57;
             // 
             // DeleteIconButton
@@ -154,14 +154,14 @@
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 33);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(17, 417);
+            this.LeftPanel.Size = new System.Drawing.Size(17, 716);
             this.LeftPanel.TabIndex = 56;
             // 
             // SearchPanel
             // 
             this.SearchPanel.Controls.Add(this.SearchBox);
             this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchPanel.Location = new System.Drawing.Point(435, 0);
+            this.SearchPanel.Location = new System.Drawing.Point(719, 0);
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(365, 33);
             this.SearchPanel.TabIndex = 10;
@@ -200,7 +200,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(800, 33);
+            this.TopPanel.Size = new System.Drawing.Size(1084, 33);
             this.TopPanel.TabIndex = 55;
             // 
             // ReferencesGrid
@@ -255,7 +255,7 @@
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ReferencesGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.ReferencesGrid.Size = new System.Drawing.Size(665, 393);
+            this.ReferencesGrid.Size = new System.Drawing.Size(949, 692);
             this.ReferencesGrid.TabIndex = 60;
             // 
             // dataGridViewTextBoxColumn9
@@ -364,7 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1084, 749);
             this.Controls.Add(this.ReferencesGrid);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.RightPanel);

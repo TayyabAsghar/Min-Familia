@@ -117,7 +117,7 @@ namespace Kaar_E_Kamal
         }
 
         private void OpenChildForm(Form ChildForm)
-        {
+        {  // Second Condition is true if form is Already not Open but Third Condition is Little bit contradicting because we have cases sub buttons.
             if ((CurrentChildForm == null) || (CurrentChildForm.Tag != ChildForm.Tag) || ((string)CurrentChildForm.Tag == "Cases"))
             {   
                 // Open only form
@@ -149,17 +149,6 @@ namespace Kaar_E_Kamal
             TitleIconPictureBox.IconColor = Color.MediumPurple;
             Titlelabel.Text = "Home";
             HideSubMenue();
-        }
-                    //To check Child forms of Child Forms.
-        private bool GrandChildFormActived()
-        {
-            foreach (Form Child in Application.OpenForms)
-                if (((string)Child.Tag == "TeamDetailsForm") || ((string)Child.Tag == "TeamMemberDetailsForm") || ((string)Child.Tag == "CasesInformationForm"))
-                {
-                    Child.BringToFront();
-                    return true;
-                }
-            return false;
         }
         #endregion
 
@@ -239,11 +228,6 @@ namespace Kaar_E_Kamal
             Reset();
             CurrentChildForm?.Hide();     // ? to check the null reference
 
-        }
-
-        private void MainMenuFormAD_Activated(object sender, EventArgs e)
-        {
-            GrandChildFormActived();
         }
         #endregion
 

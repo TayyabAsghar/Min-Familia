@@ -85,6 +85,7 @@
             this.FormPanel.Size = new System.Drawing.Size(362, 541);
             this.FormPanel.TabIndex = 0;
             this.FormPanel.Click += new System.EventHandler(this.FormPanel_Click);
+            this.FormPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormPanel_MouseDown);
             // 
             // PassBox
             // 
@@ -328,8 +329,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Activated += new System.EventHandler(this.LoginForm_Activated);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
             this.FormPanel.ResumeLayout(false);
             this.FormPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmailPic)).EndInit();

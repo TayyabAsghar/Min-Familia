@@ -36,7 +36,6 @@ E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\bi
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\bin\Debug\FontAwesome.Sharp.dll
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.LoginForm.resources
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.ReferencesForm.resources
-E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.ReferencesDetails.resources
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.MainMenuFormMember.resources
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.ConfirmationForm.resources
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.MainMenuFormAD.resources

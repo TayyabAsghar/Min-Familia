@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.SearchPanel = new System.Windows.Forms.Panel();
@@ -59,6 +60,7 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TopPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
             this.HidenPanel.SuspendLayout();
@@ -89,14 +91,14 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(929, 33);
+            this.TopPanel.Size = new System.Drawing.Size(1084, 33);
             this.TopPanel.TabIndex = 10;
             // 
             // SearchPanel
             // 
             this.SearchPanel.Controls.Add(this.SearchBox);
             this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchPanel.Location = new System.Drawing.Point(564, 0);
+            this.SearchPanel.Location = new System.Drawing.Point(719, 0);
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(365, 33);
             this.SearchPanel.TabIndex = 10;
@@ -118,16 +120,16 @@
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 33);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(17, 451);
+            this.LeftPanel.Size = new System.Drawing.Size(17, 716);
             this.LeftPanel.TabIndex = 12;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(17, 460);
+            this.panel1.Location = new System.Drawing.Point(17, 725);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(912, 24);
+            this.panel1.Size = new System.Drawing.Size(1067, 24);
             this.panel1.TabIndex = 15;
             // 
             // HidenPanel
@@ -135,9 +137,9 @@
             this.HidenPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.HidenPanel.Controls.Add(this.RightPanel);
             this.HidenPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.HidenPanel.Location = new System.Drawing.Point(811, 33);
+            this.HidenPanel.Location = new System.Drawing.Point(966, 33);
             this.HidenPanel.Name = "HidenPanel";
-            this.HidenPanel.Size = new System.Drawing.Size(118, 427);
+            this.HidenPanel.Size = new System.Drawing.Size(118, 692);
             this.HidenPanel.TabIndex = 55;
             // 
             // RightPanel
@@ -149,7 +151,7 @@
             this.RightPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.RightPanel.Location = new System.Drawing.Point(0, 0);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(118, 427);
+            this.RightPanel.Size = new System.Drawing.Size(118, 692);
             this.RightPanel.TabIndex = 14;
             // 
             // DeleteIconButton
@@ -244,30 +246,31 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MemberGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn16,
+            this.Col9});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MemberGrid.DefaultCellStyle = dataGridViewCellStyle11;
             this.MemberGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberGrid.EnableHeadersVisualStyles = false;
             this.MemberGrid.Location = new System.Drawing.Point(17, 33);
             this.MemberGrid.Name = "MemberGrid";
             this.MemberGrid.ReadOnly = true;
             this.MemberGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MemberGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.MemberGrid.Size = new System.Drawing.Size(794, 427);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MemberGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.MemberGrid.Size = new System.Drawing.Size(949, 692);
             this.MemberGrid.TabIndex = 56;
             // 
             // dataGridViewTextBoxColumn9
@@ -366,18 +369,30 @@
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Gainsboro;
             this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn16.HeaderText = "Team ID";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Password";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn16.Width = 71;
+            this.dataGridViewTextBoxColumn16.Width = 76;
+            // 
+            // Col9
+            // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            this.Col9.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Col9.HeaderText = "Team ID";
+            this.Col9.Name = "Col9";
+            this.Col9.ReadOnly = true;
+            this.Col9.Width = 71;
             // 
             // MembersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.ClientSize = new System.Drawing.Size(929, 484);
+            this.ClientSize = new System.Drawing.Size(1084, 749);
             this.Controls.Add(this.MemberGrid);
             this.Controls.Add(this.HidenPanel);
             this.Controls.Add(this.panel1);
@@ -417,5 +432,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col9;
     }
 }

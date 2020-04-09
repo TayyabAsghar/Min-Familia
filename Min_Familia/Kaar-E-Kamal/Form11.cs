@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace Kaar_E_Kamal
 {
-    public partial class ReferencesDetails : Form
+    public partial class ConfirmationForm : Form
     {
         #region Constructor
-        public ReferencesDetails()
+        public ConfirmationForm()
         {
             InitializeComponent();
             HeadingLabel.Text = "Add Reference";
         }
 
-        public ReferencesDetails(string ReferenceCNIC)
+        public ConfirmationForm(string ReferenceCNIC)
         {
             InitializeComponent();
             LoadForm(ReferenceCNIC);
@@ -28,28 +28,23 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Events
-        public void LoadForm(string ReferenceCNIC)
+        public void LoadForm(string Contant)
         {
-            HeadingLabel.Text = "Update Reference";
-            // put Query Here
-
-            CNICBox.ReadOnly = true;
+            HeadingLabel.Text = "";
+            ContantLabel.Text = Contant;
+            YesIconButton.Text = "OK";
+            YesIconButton.Location = new Point(86, 181);
+            NoIconButton.Hide();
         }
 
-        private void AddIconButton_Click(object sender, EventArgs e)
+        private void YesIconButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void CancelIconButton_Click(object sender, EventArgs e)
+        private void NoIconButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void GenderBox_TextChanged(object sender, EventArgs e)
-        {
-            if (!GenderBox.Items.Contains(GenderBox.Text))
-                GenderBox.Text = "";
         }
         #endregion
 

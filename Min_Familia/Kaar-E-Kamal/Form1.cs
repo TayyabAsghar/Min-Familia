@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -18,7 +17,6 @@ namespace Kaar_E_Kamal
 
         #region Fields
         //ConfigurationManager.ConnectionStrings["Non_Profit_Min_Familia"];
-        public readonly SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
         private int UserSelection { get; set; }  // 1 for Admin, 0 For Member
         #endregion
 
@@ -48,7 +46,7 @@ namespace Kaar_E_Kamal
 
         private void PassBox_Enter(object sender, EventArgs e)
         {
-            // Changing UseSystemPasswordChar will trigger Box.Leave() event. So we will place it Outside.
+                    // Changing UseSystemPasswordChar will trigger Box.Leave() event. So we will place it Outside.
             if (PassBox.TextAlign == HorizontalAlignment.Center)
                 PassBox.UseSystemPasswordChar = true;
             EnterBox(PassBox, PasswordPic, Properties.Resources.password__2_, PasswordWarningLabel);
@@ -75,6 +73,7 @@ namespace Kaar_E_Kamal
 
         private void EmailBox_Leave(object sender, EventArgs e)
         {
+            EmailBox.Text = EmailBox.Text.TrimEnd(' ');
             LeaveBox(EmailBox, "Someone@something.com", EmailPic, Properties.Resources.mail, EmailWarningLabel);
         }
         #endregion
@@ -125,35 +124,31 @@ namespace Kaar_E_Kamal
         {
             if (!WarningsActivation() || (1 == 1))
             {
-                int Check = UserValidated();
-
-                if (Check == 0  & (false))
-                    new ConfirmationForm("Some Fields are Incorrect.").Show();
-                else if (Check == -1 & (false))  // Some Error Occurred.
+                try
                 {
-                    DialogResult Dialog = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error");
+                    if (UserValidated() & (false))
+                        new ConfirmationForm("Some Fields are Incorrect.").ShowDialog();
+                    else
+                    {
+                        this.Hide();
+
+                        if (UserSelection == 1)
+                            new MainMenuFormAD().Show();
+                        else
+                            new MainMenuFormMember(EmailBox.Text).Show();
+                    }
+                }
+                catch   // To catch any DataBase connection in UserValidated().
+                {
+                    _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error");
                     Application.Exit();
                 }
-                else
-                {
-                    this.Hide();
-
-                    if (UserSelection == 1)
-                        new MainMenuFormAD().Show();
-                    else
-                        new MainMenuFormMember(EmailBox.Text).Show();
-                } 
             }
         }
 
         private void FormPanel_Click(object sender, EventArgs e)
         {
-            FormPanel.Focus();  // To remove the from TextBox on clicking the Panel
-        }
-
-        private void LoginForm_Activated(object sender, EventArgs e)
-        {
-            ConfirmationFormActivated();
+            FormPanel.Focus();  // To remove Focus the from TextBox on clicking the Panel
         }
         #endregion
 
@@ -191,17 +186,6 @@ namespace Kaar_E_Kamal
         }
         #endregion
 
-        private bool ConfirmationFormActivated()   // Return bool if Form activated and BringToFront it.
-        {
-            foreach (Form Child in Application.OpenForms)
-                if ((string)Child.Tag == "Confirmation")
-                {
-                    Child.BringToFront();
-                    return true;
-                }
-            return false;
-        }
-
         private bool WarningsActivation()
         {
             if (UserSelection == -1)
@@ -221,41 +205,25 @@ namespace Kaar_E_Kamal
             return false;
         }
 
-        private int UserValidated()
+        private bool UserValidated()
         {
             String Query;
 
             if (UserSelection == 1)
-                Query = "SELECT Familia_Admin_Name, Familia_Admin_Password FROM Familia_AdminData WHERE Familia_Admin_Email = '" + EmailBox.Text + "'";
+                Query = "SELECT Familia_Admin_Name, Familia_Admin_Password FROM Familia_AdminData WHERE Familia_Admin_Email = @Email;";
             else
-                Query = "SELECT Familia_Member_Name, Familia_Member_Password FROM Familia_MembersData WHERE Familia_Member_Email = '" + EmailBox.Text + "'";
-            // Just to Learn try/catch and finally block.
-            try
-            {
-                SqlCommand Command = new SqlCommand(Query, MinFamiliaCon);
-                MinFamiliaCon.Open();
-                SqlDataReader DataReader = Command.ExecuteReader();
+                Query = "SELECT Familia_Member_Name, Familia_Member_Password FROM Familia_MembersData WHERE Familia_Member_Email = @Email;";
 
-                try
-                {
-                    if (DataReader.Read())      // Reading Data From Con.
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
                     {
-                        if ((NameBox.Text == Convert.ToString(DataReader["Familia_Admin_Name"]) & (PassBox.Text == Convert.ToString(DataReader["Familia_Admin_Password"]))))
-                            return 1;
-                        return 0;
+                        Command.Parameters.AddWithValue("@Email", EmailBox.Text);
+                        MinFamiliaCon.Open();
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
+                            if (DataReader.Read())      // Reading Data From Con. if ((NameBox.Text == Convert.ToString(DataReader["Familia_Admin_Name"]) & (PassBox.Text == Convert.ToString(DataReader["Familia_Admin_Password"]))))
+                                return true;
+                            return false;  // Return 0 When Not found or when Email found but other credentials not match.
                     }
-                    return 0;
-                }
-                finally          // Use to hold Close resources statements
-                {
-                    DataReader.Close();
-                    MinFamiliaCon.Close();
-                }
-            }
-            catch      // To catch any Error Occurred due to Data Connection it return -1
-            {     
-                return -1;
-            }
         }
         #endregion
 
@@ -266,7 +234,7 @@ namespace Kaar_E_Kamal
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void LoginForm_MouseDown(object sender, MouseEventArgs e)
+        private void FormPanel_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);

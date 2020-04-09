@@ -15,46 +15,46 @@ namespace Kaar_E_Kamal
             if (Person == 'M')
             {
                 RightPanel.Hide();
+                MemberGrid.Columns[7].Visible = false;  // Members Password Restrictions.
                 HidenPanel.Size = new Size(17, 0);
             }
         }
-
-        #region Fields
-        private readonly SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
-        #endregion
 
         #region Grid
         private void PopulateGrid(string Query)
         {
             try
             {
-                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
-                {
-                    MinFamiliaCon.Open();
-                    using (SqlDataReader DataReader = Command.ExecuteReader())
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
                     {
-                        DataGridViewRow Rows = new DataGridViewRow();
-                        int Count = 1;
-
-                        MemberGrid.Rows.Clear();                // Clearing the Rows.
-
-                        while (DataReader.Read())
+                        MinFamiliaCon.Open();
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
                         {
-                            Rows.CreateCells(MemberGrid);       // Create cells in DataGridViewRows Same as MemberGrid
+                            int Count = 1;
 
-                            Rows.Cells[0].Value = Count++;
-                            Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_Member_Name"]);
-                            Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Member_CNIC"]);
-                            Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Member_Email"]);
-                            Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Member_Phone"]);
-                            Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_Member_Address"]);
-                            Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
-                            Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_Member_Team_ID"]);
+                            MemberGrid.Rows.Clear();                // Clearing the Rows.
 
-                            MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
+                            while (DataReader.Read())
+                            {
+                                DataGridViewRow Rows = new DataGridViewRow();  // Each time provide new Row.
+                                
+                                Rows.CreateCells(MemberGrid);       // Create cells in DataGridViewRows Same as MemberGrid
+
+                                Rows.Cells[0].Value = Count++;
+                                Rows.Cells[1].Value = Convert.ToString(DataReader["Familia_Member_Name"]);
+                                Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Member_CNIC"]);
+                                Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Member_Email"]);
+                                Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Member_Phone"]);
+                                Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_Member_Address"]);
+                                Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
+                                Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_Member_Password"]);
+                                Rows.Cells[8].Value = Convert.ToString(DataReader["Familia_Member_Team_ID"]);
+
+                                MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
+                            }
                         }
                     }
-                }
             }
             catch
             {

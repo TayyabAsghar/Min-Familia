@@ -10,20 +10,24 @@ namespace Kaar_E_Kamal
     public partial class DetailsForm : Form
     {
         #region Constructor
-        public DetailsForm(string Parent)
+        public DetailsForm(string Parent)  // Add Form
         {
             InitializeComponent();
             if (Parent == "MembersForm")
-                HeadingLabel.Text = "Add Member";
+            {
+                Query = "INSERT INTO Familia_MembersData VALUES(@CNIC, @Password, @Name, @Gender, @Email, @Phone, @Address, NULL);";
+                HeadingLabel.Text = "Add Member"; 
+            }
             else
             {
                 HeadingLabel.Text = "Add Reference";
+                Query = "";
                 Passlabel.Hide();
                 PasswordBox.Hide();
             }
         }
 
-        public DetailsForm(string Parent, string CNIC)
+        public DetailsForm(string Parent, string CNIC)  // Update Form
         {
             InitializeComponent();
             LoadForm(Parent, CNIC);
@@ -31,22 +35,30 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Fields
-        private SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True");
+        private string Query { set; get; }
         #endregion
 
         #region Events
         public void LoadForm(string Parent, string CNIC)
         {
+            Passlabel.Hide();
+            PasswordBox.Hide();
+            IconButton.Text = "Update";
+            CNICMaskedBox.Text = CNIC;
+            CNICMaskedBox.ReadOnly = true;
+
             if (Parent == "MembersForm")
-            HeadingLabel.Text = "Update Member";
+            {
+                HeadingLabel.Text = "Update Member";
+                Query = "UPDATE Familia_MembersData SET Familia_Member_Name = @Name, Familia_Member_Gender = @Gender, Familia_Member_Email = @Email, Familia_Member_Phone = @Phone, Familia_Member_Address = @Address WHERE Familia_Member_CNIC = @CNIC;";
+                PopulateBoxes("SELECT Familia_Member_Name Name, Familia_Member_Email Email, Familia_Member_Phone Number, Familia_Member_Address Address, Familia_Member_Gender Gender FROM Familia_MembersData WHERE Familia_Member_CNIC = @CNIC;");
+            }
             else
             {
                 HeadingLabel.Text = "Update Reference";
-                Passlabel.Hide();
-                PasswordBox.Hide();
+                Query = "";
+                PopulateBoxes("");
             }
-            AddIconButton.Text = "Update";
-            CNICMaskedBox.ReadOnly = true;
         }
 
         #region Leave Box
@@ -61,7 +73,6 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Enter
-
         private void NameBox_Enter(object sender, EventArgs e)
         {
             NameWarningLabel.ForeColor = Color.FromArgb(48, 69, 99);
@@ -69,7 +80,7 @@ namespace Kaar_E_Kamal
 
         private void CNICMaskedBox_Enter(object sender, EventArgs e)
         {
-            CNICWarningLabel.ForeColor = Color.FromArgb(48, 69, 99);
+           CNICWarningLabel.ForeColor = Color.FromArgb(48, 69, 99);
         }
 
         private void EmailBox_Enter(object sender, EventArgs e)
@@ -106,17 +117,20 @@ namespace Kaar_E_Kamal
 
         private void CNICMaskedBox_Leave(object sender, EventArgs e)
         {
-            if (!CNICMaskedBox.MaskCompleted || !AlreadyAdded())  // AlredyAdded() will only run of MaskCompleted. 
-                CNICWarningLabel.ForeColor = Color.Red;
+            if (!CNICMaskedBox.ReadOnly)  // Only Check If Read only False.
+                if (!CNICMaskedBox.MaskCompleted || AlreadyAdded())  // AlredyAdded() will only run on MaskCompleted. 
+                    CNICWarningLabel.ForeColor = Color.Red;
         }
 
         private void EmailBox_Leave(object sender, EventArgs e)
         {
+            EmailBox.Text = EmailBox.Text.TrimEnd(' ');
             LeaveBox(EmailBox, EmailWarningLabel);
         }
 
         private void NumberBox_Leave(object sender, EventArgs e)
         {
+            NumberBox.Text = NumberBox.Text.TrimEnd(' ');
             LeaveBox(NumberBox, NumberWarningLabel);
         }
 
@@ -128,7 +142,6 @@ namespace Kaar_E_Kamal
                 GenderBox.Select(0, 0);
         }
 
-        #region Click Events
         private void PasswordBox_Leave(object sender, EventArgs e)
         {
             LeaveBox(PasswordBox, PasswordWarningLabel);
@@ -136,27 +149,36 @@ namespace Kaar_E_Kamal
 
         private void AddressRichBox_Leave(object sender, EventArgs e)
         {
-            if (AddressRichBox.Text == "")
+            if (AddressRichBox.Text == "" || AddressRichBox.Text.Contains("="))
                 AddressWarningLabel.ForeColor = Color.Red;
             else
-                AddressRichBox.Select(0, 0);                     // Move the Cursor to Start.
+            {
+                AddressRichBox.Text = AddressRichBox.Text.TrimEnd(' ');
+                AddressRichBox.Select(0, 0);            // Move the Cursor to Start.
+            }
         }
         #endregion
 
-        private void AddIconButton_Click(object sender, EventArgs e)
+        #region Click Events
+        private void IconButton_Click(object sender, EventArgs e)
         {
             if (!WarningsActivated())
-            {
-                string Query = "";
-                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
-                {
-                    //Add
-                    //MinFamiliaCon.Open();
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
+                    {
+                        Command.Parameters.AddWithValue("@CNIC", CNICMaskedBox.Text);
+                        Command.Parameters.AddWithValue("@Password", PasswordBox.Text);
+                        Command.Parameters.AddWithValue("@Name", NameBox.Text);
+                        Command.Parameters.AddWithValue("@Gender", GenderBox.Text);
+                        Command.Parameters.AddWithValue("@Email", EmailBox.Text);
+                        Command.Parameters.AddWithValue("@Phone", NumberBox.Text);
+                        Command.Parameters.AddWithValue("@Address", AddressRichBox.Text);
 
-                    this.DialogResult = DialogResult.Yes;
-                    this.Close();
-                }
-            }
+                        MinFamiliaCon.Open();
+                        Command.ExecuteNonQuery();
+                        this.DialogResult = DialogResult.Yes;   // To show Changes are made in DataBase;
+                        this.Close();
+                    }
         }
 
         private void CancelIconButton_Click(object sender, EventArgs e)
@@ -171,6 +193,7 @@ namespace Kaar_E_Kamal
         }
         #endregion
 
+
         private void GenderBox_TextChanged(object sender, EventArgs e)
         {
             if (!GenderBox.Items.Contains(GenderBox.Text))      // So user can only select from List.
@@ -179,25 +202,53 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Extra Functions
+        private void PopulateBoxes(string Query)
+        {
+            try
+            {
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
+                    {
+                        Command.Parameters.AddWithValue("@CNIC", CNICMaskedBox.Text);   // CNIC is Set in constructor;
+
+                        MinFamiliaCon.Open();
+
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
+                            if (DataReader.Read())
+                            {
+                                NameBox.Text        = Convert.ToString(DataReader["Name"]);
+                                EmailBox.Text       = Convert.ToString(DataReader["Email"]);
+                                NumberBox.Text      = Convert.ToString(DataReader["Number"]);
+                                AddressRichBox.Text = Convert.ToString(DataReader["Address"]);
+                                GenderBox.Text      = Convert.ToString(DataReader["Gender"]);
+                            }
+                    }
+            }
+            catch
+            {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
+                Application.Exit();
+            }
+        }
 
         private bool AlreadyAdded()
         {
             try
             {
-                string Query = "SELECT CASE WHEN EXISTS (SELECT 1 FROM Familia_AdminData WHERE Familia_Admin_CNIC = @CNIC) OR EXISTS (SELECT 1 FROM Familia_MembersData WHERE Familia_Member_CNIC = @CNIC) THEN 1 ELSE 0 END OPTION (OPTIMIZE FOR UNKNOWN);";
-
-                using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
-                {
-                    Command.Parameters.AddWithValue("@CNIC", CNICMaskedBox.Text);
-                    MinFamiliaCon.Open();
-
-                    using (SqlDataReader DataReader = Command.ExecuteReader())
+                string Query = "SELECT CASE WHEN EXISTS (SELECT 1 FROM Familia_AdminData WHERE Familia_Admin_CNIC = @CNIC) OR EXISTS (SELECT 1 FROM Familia_MembersData WHERE Familia_Member_CNIC = @CNIC) THEN 1 ELSE 0 END Present OPTION (OPTIMIZE FOR UNKNOWN);";
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand(Query, MinFamiliaCon))
                     {
-                        if (DataReader.Read())
-                            return Convert.ToBoolean(DataReader["Familia_Member_CNIC"]);
-                        return false;                 // Maybe it will never executed.
+                        Command.Parameters.AddWithValue("@CNIC", CNICMaskedBox.Text);
+                        MinFamiliaCon.Open();
+
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
+                        {
+                            if (DataReader.Read())
+                                return Convert.ToBoolean(DataReader["Present"]);
+                            return false;                 // Maybe it will never executed.
+                        }
                     }
-                }
             }
             catch
             {
@@ -218,7 +269,7 @@ namespace Kaar_E_Kamal
             if (GenderBox.Text == "")
                 GenderWarningLabel.ForeColor = Color.Red;
 
-            if (PasswordBox.Text == "")
+            if (PasswordBox.Text == "" && PasswordBox.Visible)  // Your not in Update Mode.
                 PasswordWarningLabel.ForeColor = Color.Red;
 
             if (!CNICMaskedBox.MaskCompleted)

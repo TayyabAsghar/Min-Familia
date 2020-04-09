@@ -30,10 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuFormAD));
             this.PanelSideMenue = new System.Windows.Forms.Panel();
-            this.HelpButton = new FontAwesome.Sharp.IconButton();
-            this.ReferenceButton = new FontAwesome.Sharp.IconButton();
             this.CasesSubMenuePanel = new System.Windows.Forms.Panel();
-            this.CompletedCasesButton = new FontAwesome.Sharp.IconButton();
             this.PendingCasesButton = new FontAwesome.Sharp.IconButton();
             this.RejectedCasesButton = new FontAwesome.Sharp.IconButton();
             this.ApprovedCasesButton = new FontAwesome.Sharp.IconButton();
@@ -55,6 +52,9 @@
             this.DeskTopPanel = new System.Windows.Forms.Panel();
             this.SubDeskTopPanel = new System.Windows.Forms.Panel();
             this.CasesPictureBox = new System.Windows.Forms.PictureBox();
+            this.CompletedCasesButton = new FontAwesome.Sharp.IconButton();
+            this.ReferenceButton = new FontAwesome.Sharp.IconButton();
+            this.HelpButton = new FontAwesome.Sharp.IconButton();
             this.PanelSideMenue.SuspendLayout();
             this.CasesSubMenuePanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -86,58 +86,6 @@
             this.PanelSideMenue.Size = new System.Drawing.Size(177, 599);
             this.PanelSideMenue.TabIndex = 7;
             // 
-            // HelpButton
-            // 
-            this.HelpButton.BackColor = System.Drawing.Color.Transparent;
-            this.HelpButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HelpButton.FlatAppearance.BorderSize = 0;
-            this.HelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.HelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HelpButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.HelpButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HelpButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.HelpButton.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            this.HelpButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.HelpButton.IconSize = 28;
-            this.HelpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HelpButton.Location = new System.Drawing.Point(0, 411);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Rotation = 0D;
-            this.HelpButton.Size = new System.Drawing.Size(177, 40);
-            this.HelpButton.TabIndex = 31;
-            this.HelpButton.Tag = "Non-Parent";
-            this.HelpButton.Text = "Help";
-            this.HelpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.HelpButton.UseVisualStyleBackColor = false;
-            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
-            // 
-            // ReferenceButton
-            // 
-            this.ReferenceButton.BackColor = System.Drawing.Color.Transparent;
-            this.ReferenceButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ReferenceButton.FlatAppearance.BorderSize = 0;
-            this.ReferenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.ReferenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.ReferenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReferenceButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ReferenceButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReferenceButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ReferenceButton.IconChar = FontAwesome.Sharp.IconChar.UserTag;
-            this.ReferenceButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.ReferenceButton.IconSize = 28;
-            this.ReferenceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReferenceButton.Location = new System.Drawing.Point(0, 371);
-            this.ReferenceButton.Name = "ReferenceButton";
-            this.ReferenceButton.Rotation = 0D;
-            this.ReferenceButton.Size = new System.Drawing.Size(177, 40);
-            this.ReferenceButton.TabIndex = 30;
-            this.ReferenceButton.Tag = "Non-Parent";
-            this.ReferenceButton.Text = "References";
-            this.ReferenceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ReferenceButton.UseVisualStyleBackColor = false;
-            this.ReferenceButton.Click += new System.EventHandler(this.ReferenceButton_Click);
-            // 
             // CasesSubMenuePanel
             // 
             this.CasesSubMenuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
@@ -151,30 +99,6 @@
             this.CasesSubMenuePanel.Name = "CasesSubMenuePanel";
             this.CasesSubMenuePanel.Size = new System.Drawing.Size(177, 145);
             this.CasesSubMenuePanel.TabIndex = 29;
-            // 
-            // CompletedCasesButton
-            // 
-            this.CompletedCasesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CompletedCasesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CompletedCasesButton.FlatAppearance.BorderSize = 0;
-            this.CompletedCasesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
-            this.CompletedCasesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompletedCasesButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.CompletedCasesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompletedCasesButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CompletedCasesButton.IconChar = FontAwesome.Sharp.IconChar.ThumbsUp;
-            this.CompletedCasesButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.CompletedCasesButton.IconSize = 25;
-            this.CompletedCasesButton.Location = new System.Drawing.Point(0, 116);
-            this.CompletedCasesButton.Name = "CompletedCasesButton";
-            this.CompletedCasesButton.Rotation = 0D;
-            this.CompletedCasesButton.Size = new System.Drawing.Size(177, 29);
-            this.CompletedCasesButton.TabIndex = 19;
-            this.CompletedCasesButton.Tag = "Sub";
-            this.CompletedCasesButton.Text = "Completed";
-            this.CompletedCasesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CompletedCasesButton.UseVisualStyleBackColor = false;
-            this.CompletedCasesButton.Click += new System.EventHandler(this.CompletedCasesButton_Click);
             // 
             // PendingCasesButton
             // 
@@ -543,6 +467,82 @@
             this.CasesPictureBox.TabIndex = 13;
             this.CasesPictureBox.TabStop = false;
             // 
+            // CompletedCasesButton
+            // 
+            this.CompletedCasesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CompletedCasesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CompletedCasesButton.FlatAppearance.BorderSize = 0;
+            this.CompletedCasesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.CompletedCasesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompletedCasesButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CompletedCasesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompletedCasesButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CompletedCasesButton.IconChar = FontAwesome.Sharp.IconChar.ThumbsUp;
+            this.CompletedCasesButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.CompletedCasesButton.IconSize = 25;
+            this.CompletedCasesButton.Location = new System.Drawing.Point(0, 116);
+            this.CompletedCasesButton.Name = "CompletedCasesButton";
+            this.CompletedCasesButton.Rotation = 0D;
+            this.CompletedCasesButton.Size = new System.Drawing.Size(177, 29);
+            this.CompletedCasesButton.TabIndex = 19;
+            this.CompletedCasesButton.Tag = "Sub";
+            this.CompletedCasesButton.Text = "Completed";
+            this.CompletedCasesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CompletedCasesButton.UseVisualStyleBackColor = false;
+            this.CompletedCasesButton.Click += new System.EventHandler(this.CompletedCasesButton_Click);
+            // 
+            // ReferenceButton
+            // 
+            this.ReferenceButton.BackColor = System.Drawing.Color.Transparent;
+            this.ReferenceButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ReferenceButton.FlatAppearance.BorderSize = 0;
+            this.ReferenceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ReferenceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.ReferenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReferenceButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.ReferenceButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReferenceButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ReferenceButton.IconChar = FontAwesome.Sharp.IconChar.UserTag;
+            this.ReferenceButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.ReferenceButton.IconSize = 28;
+            this.ReferenceButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReferenceButton.Location = new System.Drawing.Point(0, 371);
+            this.ReferenceButton.Name = "ReferenceButton";
+            this.ReferenceButton.Rotation = 0D;
+            this.ReferenceButton.Size = new System.Drawing.Size(177, 40);
+            this.ReferenceButton.TabIndex = 30;
+            this.ReferenceButton.Tag = "Non-Parent";
+            this.ReferenceButton.Text = "References";
+            this.ReferenceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReferenceButton.UseVisualStyleBackColor = false;
+            this.ReferenceButton.Click += new System.EventHandler(this.ReferenceButton_Click);
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.BackColor = System.Drawing.Color.Transparent;
+            this.HelpButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.HelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(75)))), ((int)(((byte)(165)))));
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.HelpButton.Font = new System.Drawing.Font("Lovelo Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.HelpButton.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.HelpButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.HelpButton.IconSize = 28;
+            this.HelpButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HelpButton.Location = new System.Drawing.Point(0, 411);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Rotation = 0D;
+            this.HelpButton.Size = new System.Drawing.Size(177, 40);
+            this.HelpButton.TabIndex = 31;
+            this.HelpButton.Tag = "Non-Parent";
+            this.HelpButton.Text = "Help";
+            this.HelpButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
             // MainMenuFormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,8 +555,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainMenuFormAD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
-            this.Activated += new System.EventHandler(this.MainMenuFormAD_Activated);
             this.SizeChanged += new System.EventHandler(this.MainMenuFormAD_SizeChanged);
             this.PanelSideMenue.ResumeLayout(false);
             this.CasesSubMenuePanel.ResumeLayout(false);
@@ -590,7 +588,6 @@
         private System.Windows.Forms.PictureBox CasesPictureBox;
         private System.Windows.Forms.Panel SubDeskTopPanel;
         private System.Windows.Forms.Panel CasesSubMenuePanel;
-        private FontAwesome.Sharp.IconButton CompletedCasesButton;
         private FontAwesome.Sharp.IconButton PendingCasesButton;
         private FontAwesome.Sharp.IconButton RejectedCasesButton;
         private FontAwesome.Sharp.IconButton ApprovedCasesButton;
@@ -598,7 +595,8 @@
         private FontAwesome.Sharp.IconButton CasesButton;
         private FontAwesome.Sharp.IconButton TeamsButton;
         private FontAwesome.Sharp.IconButton MembersButton;
-        private new FontAwesome.Sharp.IconButton HelpButton;
+        private FontAwesome.Sharp.IconButton HelpButton;
         private FontAwesome.Sharp.IconButton ReferenceButton;
+        private FontAwesome.Sharp.IconButton CompletedCasesButton;
     }
 }
