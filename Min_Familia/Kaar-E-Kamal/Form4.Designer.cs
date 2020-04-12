@@ -70,7 +70,7 @@
             this.HeadingLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(69)))), ((int)(((byte)(99)))));
             this.HeadingLabel.Font = new System.Drawing.Font("Lovelo Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeadingLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.HeadingLabel.Location = new System.Drawing.Point(331, 18);
+            this.HeadingLabel.Location = new System.Drawing.Point(347, 18);
             this.HeadingLabel.Name = "HeadingLabel";
             this.HeadingLabel.Size = new System.Drawing.Size(90, 24);
             this.HeadingLabel.TabIndex = 8;
@@ -180,8 +180,7 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(215, 22);
             this.PasswordBox.TabIndex = 109;
-            this.PasswordBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\-@#$%&!<>^,*`~?+:,.|])(?!.*[=;])(?=.{8," +
-    "})";
+            this.PasswordBox.Tag = "";
             this.PasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
             this.PasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
             // 
@@ -192,7 +191,7 @@
             this.NumberBox.Name = "NumberBox";
             this.NumberBox.Size = new System.Drawing.Size(215, 22);
             this.NumberBox.TabIndex = 108;
-            this.NumberBox.Tag = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
+            this.NumberBox.Tag = "";
             this.NumberBox.Enter += new System.EventHandler(this.NumberBox_Enter);
             this.NumberBox.Leave += new System.EventHandler(this.NumberBox_Leave);
             // 
@@ -203,8 +202,7 @@
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(215, 22);
             this.EmailBox.TabIndex = 107;
-            this.EmailBox.Tag = "[a-z0-9!#$%&\'*+/?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0" +
-    "-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            this.EmailBox.Tag = "";
             this.EmailBox.Enter += new System.EventHandler(this.EmailBox_Enter);
             this.EmailBox.Leave += new System.EventHandler(this.EmailBox_Leave);
             // 
@@ -338,7 +336,7 @@
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(215, 22);
             this.NameBox.TabIndex = 95;
-            this.NameBox.Tag = "^[a-zA-Z]+([ -]?[a-zA-Z])*$";
+            this.NameBox.Tag = "";
             this.NameBox.Enter += new System.EventHandler(this.NameBox_Enter);
             this.NameBox.Leave += new System.EventHandler(this.NameBox_Leave);
             // 

@@ -1,0 +1,159 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Web;
+
+using System.Web.UI;
+
+using System.Web.UI.WebControls;
+
+using System.Data.SqlClient;
+
+using System.Data;
+
+ 
+
+public partial class frmSQLinjection : System.Web.UI.Page
+
+{
+
+    public static SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=studentdetail;Integrated security=true");
+
+    protected void Page_Load(object sender, EventArgs e)
+
+    {
+
+    }
+  
+After that the add checkForSQLInjection method in the code behind=>this method check the Input string against the SQL injection. Here I have to list all SQL injection input in array of string. Adding this method returns true and false.
+ 
+
+public static Boolean checkForSQLInjection(string userInput)
+
+{
+
+        bool isSQLInjection = false;
+
+        string[] sqlCheckList = { "--",
+
+                                       ";--",
+
+                                       ";",
+
+                                       "/*",
+
+                                       "*/",
+
+                                        "@@",
+
+                                        "@",
+
+                                        "char",
+
+                                       "nchar",
+
+                                       "varchar",
+
+                                       "nvarchar",
+
+                                       "alter",
+
+                                       "begin",
+
+                                       "cast",
+
+                                       "create",
+
+                                       "cursor",
+
+                                       "declare",
+
+                                       "delete",
+
+                                       "drop",
+
+                                       "end",
+
+                                       "exec",
+
+                                       "execute",
+
+                                       "fetch",
+
+                                            "insert",
+
+                                          "kill",
+
+                                             "select",
+
+                                           "sys",
+
+                                            "sysobjects",
+
+                                            "syscolumns",
+
+                                           "table",
+
+                                           "update"
+
+                                       };
+
+        string CheckString = userInput.Replace("'", "''");
+
+        for (int i = 0; i <= sqlCheckList.Length - 1; i++)
+
+        {
+
+            if ((CheckString.IndexOf(sqlCheckList[i],
+
+StringComparison.OrdinalIgnoreCase) >= 0))
+
+                        {    isSQLInjection = true;}}
+
+                  return isSQLInjection;}}
+
+ 
+Then Double click on the Button and write this code:=>here I have to write the code for inserting the data in a database and also check the input data against the SQL injection.
+
+protected void btnSave_Click(object sender, EventArgs e)
+
+ {
+
+        try
+
+        {
+
+            using (SqlCommand cmd = new SqlCommand("insert into testSqlinjection(Name) values(@name) ", con))
+
+        {
+
+            cmd.CommandType = CommandType.Text;
+
+            if (checkForSQLInjection(txtName.Text.Trim())) { lblMesg.Text = "Sql Injection Attack"; return; }
+
+            checkForSQLInjection(txtName.Text.Trim());
+
+            cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+
+            con.Close();
+
+            con.Open();
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            lblMesg.Text = "Data Saved succsessfuly";
+
+        }
+
+     }
+
+     catch (Exception ex)
+
+     { lblMesg.Text = ex.Message; }
+
+}

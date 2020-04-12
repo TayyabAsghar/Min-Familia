@@ -73,3 +73,5 @@ E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\bi
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\bin\Debug\System.Text.Encoding.CodePages.xml
 E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.DetailsForm.resources
+E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar-E-Kamal.csproj.CoreCompileInputs.cache
+E:\Documents\Tayyab_Asghar_S4\DBMS (Lab)\Mid-Project\Min_Familia\Kaar-E-Kamal\obj\Debug\Kaar_E_Kamal.CaseDetailsFirstForm.resources

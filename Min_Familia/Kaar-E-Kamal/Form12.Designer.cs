@@ -29,126 +29,47 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuFormMember));
-            this.MinimizeIconButton = new FontAwesome.Sharp.IconButton();
-            this.CloseIconButton = new FontAwesome.Sharp.IconButton();
-            this.LogoBox = new System.Windows.Forms.PictureBox();
-            this.MaximizeIconButton = new FontAwesome.Sharp.IconButton();
-            this.PictureBox = new System.Windows.Forms.PictureBox();
             this.SubDeskTopPanel = new System.Windows.Forms.Panel();
             this.DeskTopPanel = new System.Windows.Forms.Panel();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.Titlelabel = new System.Windows.Forms.Label();
-            this.TitleIconPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.PanelSideMenue = new System.Windows.Forms.Panel();
+            this.CasesSubMenuePanel = new System.Windows.Forms.Panel();
+            this.TeamsSubMenuePanel = new System.Windows.Forms.Panel();
+            this.LinePanel = new System.Windows.Forms.Panel();
+            this.LogoPanel = new System.Windows.Forms.Panel();
+            this.BorderPanel = new System.Windows.Forms.Panel();
+            this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.TitleIconPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.HelpButton = new FontAwesome.Sharp.IconButton();
             this.ReferenceButton = new FontAwesome.Sharp.IconButton();
-            this.CasesSubMenuePanel = new System.Windows.Forms.Panel();
             this.CompletedCasesButton = new FontAwesome.Sharp.IconButton();
             this.PendingCasesButton = new FontAwesome.Sharp.IconButton();
             this.RejectedCasesButton = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.CasesButton = new FontAwesome.Sharp.IconButton();
-            this.TeamsSubMenuePanel = new System.Windows.Forms.Panel();
             this.MyTeamButton = new FontAwesome.Sharp.IconButton();
             this.ShowTeamsButton = new FontAwesome.Sharp.IconButton();
             this.TeamsButton = new FontAwesome.Sharp.IconButton();
             this.MembersButton = new FontAwesome.Sharp.IconButton();
-            this.LinePanel = new System.Windows.Forms.Panel();
             this.LogoutButton = new FontAwesome.Sharp.IconButton();
-            this.LogoPanel = new System.Windows.Forms.Panel();
-            this.BorderPanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
+            this.MinimizeIconButton = new FontAwesome.Sharp.IconButton();
+            this.MaximizeIconButton = new FontAwesome.Sharp.IconButton();
+            this.CloseIconButton = new FontAwesome.Sharp.IconButton();
             this.SubDeskTopPanel.SuspendLayout();
             this.DeskTopPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).BeginInit();
             this.PanelSideMenue.SuspendLayout();
             this.CasesSubMenuePanel.SuspendLayout();
             this.TeamsSubMenuePanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             this.BorderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MinimizeIconButton
-            // 
-            this.MinimizeIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinimizeIconButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
-            this.MinimizeIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.MinimizeIconButton.Font = new System.Drawing.Font("Microsoft Uighur", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimizeIconButton.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.MinimizeIconButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.MinimizeIconButton.IconSize = 22;
-            this.MinimizeIconButton.Location = new System.Drawing.Point(893, 0);
-            this.MinimizeIconButton.Name = "MinimizeIconButton";
-            this.MinimizeIconButton.Rotation = 0D;
-            this.MinimizeIconButton.Size = new System.Drawing.Size(37, 38);
-            this.MinimizeIconButton.TabIndex = 2;
-            this.MinimizeIconButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.MinimizeIconButton.UseVisualStyleBackColor = true;
-            this.MinimizeIconButton.Click += new System.EventHandler(this.MinimizeIconButton_Click);
-            // 
-            // CloseIconButton
-            // 
-            this.CloseIconButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CloseIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseIconButton.FlatAppearance.BorderSize = 0;
-            this.CloseIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
-            this.CloseIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.CloseIconButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.CloseIconButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.CloseIconButton.IconSize = 22;
-            this.CloseIconButton.Location = new System.Drawing.Point(967, 0);
-            this.CloseIconButton.Name = "CloseIconButton";
-            this.CloseIconButton.Rotation = 0D;
-            this.CloseIconButton.Size = new System.Drawing.Size(37, 38);
-            this.CloseIconButton.TabIndex = 0;
-            this.CloseIconButton.UseVisualStyleBackColor = true;
-            this.CloseIconButton.Click += new System.EventHandler(this.CloseIconButton_Click);
-            // 
-            // LogoBox
-            // 
-            this.LogoBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.LogoBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoBox.Image")));
-            this.LogoBox.Location = new System.Drawing.Point(30, 10);
-            this.LogoBox.Name = "LogoBox";
-            this.LogoBox.Size = new System.Drawing.Size(79, 81);
-            this.LogoBox.TabIndex = 0;
-            this.LogoBox.TabStop = false;
-            this.LogoBox.Click += new System.EventHandler(this.LogoBox_Click);
-            // 
-            // MaximizeIconButton
-            // 
-            this.MaximizeIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MaximizeIconButton.FlatAppearance.BorderSize = 0;
-            this.MaximizeIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
-            this.MaximizeIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MaximizeIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.MaximizeIconButton.IconChar = FontAwesome.Sharp.IconChar.Square;
-            this.MaximizeIconButton.IconColor = System.Drawing.Color.Gainsboro;
-            this.MaximizeIconButton.IconSize = 18;
-            this.MaximizeIconButton.Location = new System.Drawing.Point(930, 0);
-            this.MaximizeIconButton.Name = "MaximizeIconButton";
-            this.MaximizeIconButton.Rotation = 0D;
-            this.MaximizeIconButton.Size = new System.Drawing.Size(37, 38);
-            this.MaximizeIconButton.TabIndex = 1;
-            this.MaximizeIconButton.UseVisualStyleBackColor = true;
-            this.MaximizeIconButton.Click += new System.EventHandler(this.MaximizeIconButton_Click);
-            // 
-            // PictureBox
-            // 
-            this.PictureBox.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.viktor_talashuk_05HLFQu8bFw_unsplash;
-            this.PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PictureBox.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(827, 551);
-            this.PictureBox.TabIndex = 13;
-            this.PictureBox.TabStop = false;
             // 
             // SubDeskTopPanel
             // 
@@ -193,20 +114,6 @@
             this.Titlelabel.TabIndex = 1;
             this.Titlelabel.Text = "Home";
             // 
-            // TitleIconPictureBox
-            // 
-            this.TitleIconPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.TitleIconPictureBox.ForeColor = System.Drawing.Color.MediumPurple;
-            this.TitleIconPictureBox.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.TitleIconPictureBox.IconColor = System.Drawing.Color.MediumPurple;
-            this.TitleIconPictureBox.IconSize = 38;
-            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 6);
-            this.TitleIconPictureBox.Name = "TitleIconPictureBox";
-            this.TitleIconPictureBox.Size = new System.Drawing.Size(38, 38);
-            this.TitleIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.TitleIconPictureBox.TabIndex = 0;
-            this.TitleIconPictureBox.TabStop = false;
-            // 
             // PanelSideMenue
             // 
             this.PanelSideMenue.AutoScroll = true;
@@ -226,6 +133,87 @@
             this.PanelSideMenue.Name = "PanelSideMenue";
             this.PanelSideMenue.Size = new System.Drawing.Size(177, 599);
             this.PanelSideMenue.TabIndex = 7;
+            // 
+            // CasesSubMenuePanel
+            // 
+            this.CasesSubMenuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CasesSubMenuePanel.Controls.Add(this.CompletedCasesButton);
+            this.CasesSubMenuePanel.Controls.Add(this.PendingCasesButton);
+            this.CasesSubMenuePanel.Controls.Add(this.RejectedCasesButton);
+            this.CasesSubMenuePanel.Controls.Add(this.iconButton1);
+            this.CasesSubMenuePanel.Controls.Add(this.iconButton2);
+            this.CasesSubMenuePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CasesSubMenuePanel.Location = new System.Drawing.Point(0, 284);
+            this.CasesSubMenuePanel.Name = "CasesSubMenuePanel";
+            this.CasesSubMenuePanel.Size = new System.Drawing.Size(177, 145);
+            this.CasesSubMenuePanel.TabIndex = 33;
+            // 
+            // TeamsSubMenuePanel
+            // 
+            this.TeamsSubMenuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.TeamsSubMenuePanel.Controls.Add(this.MyTeamButton);
+            this.TeamsSubMenuePanel.Controls.Add(this.ShowTeamsButton);
+            this.TeamsSubMenuePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TeamsSubMenuePanel.Location = new System.Drawing.Point(0, 186);
+            this.TeamsSubMenuePanel.Name = "TeamsSubMenuePanel";
+            this.TeamsSubMenuePanel.Size = new System.Drawing.Size(177, 58);
+            this.TeamsSubMenuePanel.TabIndex = 30;
+            // 
+            // LinePanel
+            // 
+            this.LinePanel.BackColor = System.Drawing.Color.White;
+            this.LinePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LinePanel.Location = new System.Drawing.Point(0, 558);
+            this.LinePanel.Name = "LinePanel";
+            this.LinePanel.Size = new System.Drawing.Size(177, 1);
+            this.LinePanel.TabIndex = 19;
+            // 
+            // LogoPanel
+            // 
+            this.LogoPanel.Controls.Add(this.LogoBox);
+            this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoPanel.Location = new System.Drawing.Point(0, 0);
+            this.LogoPanel.Name = "LogoPanel";
+            this.LogoPanel.Size = new System.Drawing.Size(177, 106);
+            this.LogoPanel.TabIndex = 1;
+            // 
+            // BorderPanel
+            // 
+            this.BorderPanel.BackColor = System.Drawing.Color.Black;
+            this.BorderPanel.Controls.Add(this.MinimizeIconButton);
+            this.BorderPanel.Controls.Add(this.MaximizeIconButton);
+            this.BorderPanel.Controls.Add(this.CloseIconButton);
+            this.BorderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BorderPanel.Location = new System.Drawing.Point(0, 0);
+            this.BorderPanel.Name = "BorderPanel";
+            this.BorderPanel.Size = new System.Drawing.Size(1004, 38);
+            this.BorderPanel.TabIndex = 15;
+            this.BorderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            // 
+            // PictureBox
+            // 
+            this.PictureBox.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.viktor_talashuk_05HLFQu8bFw_unsplash;
+            this.PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PictureBox.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(827, 551);
+            this.PictureBox.TabIndex = 13;
+            this.PictureBox.TabStop = false;
+            // 
+            // TitleIconPictureBox
+            // 
+            this.TitleIconPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.TitleIconPictureBox.ForeColor = System.Drawing.Color.MediumPurple;
+            this.TitleIconPictureBox.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.TitleIconPictureBox.IconColor = System.Drawing.Color.MediumPurple;
+            this.TitleIconPictureBox.IconSize = 38;
+            this.TitleIconPictureBox.Location = new System.Drawing.Point(23, 6);
+            this.TitleIconPictureBox.Name = "TitleIconPictureBox";
+            this.TitleIconPictureBox.Size = new System.Drawing.Size(38, 38);
+            this.TitleIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.TitleIconPictureBox.TabIndex = 0;
+            this.TitleIconPictureBox.TabStop = false;
             // 
             // HelpButton
             // 
@@ -278,20 +266,6 @@
             this.ReferenceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ReferenceButton.UseVisualStyleBackColor = false;
             this.ReferenceButton.Click += new System.EventHandler(this.ReferenceButton_Click);
-            // 
-            // CasesSubMenuePanel
-            // 
-            this.CasesSubMenuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CasesSubMenuePanel.Controls.Add(this.CompletedCasesButton);
-            this.CasesSubMenuePanel.Controls.Add(this.PendingCasesButton);
-            this.CasesSubMenuePanel.Controls.Add(this.RejectedCasesButton);
-            this.CasesSubMenuePanel.Controls.Add(this.iconButton1);
-            this.CasesSubMenuePanel.Controls.Add(this.iconButton2);
-            this.CasesSubMenuePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CasesSubMenuePanel.Location = new System.Drawing.Point(0, 284);
-            this.CasesSubMenuePanel.Name = "CasesSubMenuePanel";
-            this.CasesSubMenuePanel.Size = new System.Drawing.Size(177, 145);
-            this.CasesSubMenuePanel.TabIndex = 33;
             // 
             // CompletedCasesButton
             // 
@@ -439,17 +413,6 @@
             this.CasesButton.UseVisualStyleBackColor = false;
             this.CasesButton.Click += new System.EventHandler(this.CasesButton_Click);
             // 
-            // TeamsSubMenuePanel
-            // 
-            this.TeamsSubMenuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.TeamsSubMenuePanel.Controls.Add(this.MyTeamButton);
-            this.TeamsSubMenuePanel.Controls.Add(this.ShowTeamsButton);
-            this.TeamsSubMenuePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TeamsSubMenuePanel.Location = new System.Drawing.Point(0, 186);
-            this.TeamsSubMenuePanel.Name = "TeamsSubMenuePanel";
-            this.TeamsSubMenuePanel.Size = new System.Drawing.Size(177, 58);
-            this.TeamsSubMenuePanel.TabIndex = 30;
-            // 
             // MyTeamButton
             // 
             this.MyTeamButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
@@ -550,15 +513,6 @@
             this.MembersButton.UseVisualStyleBackColor = false;
             this.MembersButton.Click += new System.EventHandler(this.MembersButton_Click);
             // 
-            // LinePanel
-            // 
-            this.LinePanel.BackColor = System.Drawing.Color.White;
-            this.LinePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LinePanel.Location = new System.Drawing.Point(0, 558);
-            this.LinePanel.Name = "LinePanel";
-            this.LinePanel.Size = new System.Drawing.Size(177, 1);
-            this.LinePanel.TabIndex = 19;
-            // 
             // LogoutButton
             // 
             this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
@@ -585,27 +539,74 @@
             this.LogoutButton.UseVisualStyleBackColor = false;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
-            // LogoPanel
+            // LogoBox
             // 
-            this.LogoPanel.Controls.Add(this.LogoBox);
-            this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LogoPanel.Location = new System.Drawing.Point(0, 0);
-            this.LogoPanel.Name = "LogoPanel";
-            this.LogoPanel.Size = new System.Drawing.Size(177, 106);
-            this.LogoPanel.TabIndex = 1;
+            this.LogoBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.LogoBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoBox.Image")));
+            this.LogoBox.Location = new System.Drawing.Point(0, 0);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(177, 106);
+            this.LogoBox.TabIndex = 0;
+            this.LogoBox.TabStop = false;
+            this.LogoBox.Click += new System.EventHandler(this.LogoBox_Click);
             // 
-            // BorderPanel
+            // MinimizeIconButton
             // 
-            this.BorderPanel.BackColor = System.Drawing.Color.Black;
-            this.BorderPanel.Controls.Add(this.MinimizeIconButton);
-            this.BorderPanel.Controls.Add(this.MaximizeIconButton);
-            this.BorderPanel.Controls.Add(this.CloseIconButton);
-            this.BorderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BorderPanel.Location = new System.Drawing.Point(0, 0);
-            this.BorderPanel.Name = "BorderPanel";
-            this.BorderPanel.Size = new System.Drawing.Size(1004, 38);
-            this.BorderPanel.TabIndex = 15;
-            this.BorderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.MinimizeIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MinimizeIconButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
+            this.MinimizeIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.MinimizeIconButton.Font = new System.Drawing.Font("Microsoft Uighur", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimizeIconButton.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.MinimizeIconButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.MinimizeIconButton.IconSize = 22;
+            this.MinimizeIconButton.Location = new System.Drawing.Point(893, 0);
+            this.MinimizeIconButton.Name = "MinimizeIconButton";
+            this.MinimizeIconButton.Rotation = 0D;
+            this.MinimizeIconButton.Size = new System.Drawing.Size(37, 38);
+            this.MinimizeIconButton.TabIndex = 2;
+            this.MinimizeIconButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.MinimizeIconButton.UseVisualStyleBackColor = true;
+            this.MinimizeIconButton.Click += new System.EventHandler(this.MinimizeIconButton_Click);
+            // 
+            // MaximizeIconButton
+            // 
+            this.MaximizeIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MaximizeIconButton.FlatAppearance.BorderSize = 0;
+            this.MaximizeIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
+            this.MaximizeIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MaximizeIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.MaximizeIconButton.IconChar = FontAwesome.Sharp.IconChar.Square;
+            this.MaximizeIconButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.MaximizeIconButton.IconSize = 18;
+            this.MaximizeIconButton.Location = new System.Drawing.Point(930, 0);
+            this.MaximizeIconButton.Name = "MaximizeIconButton";
+            this.MaximizeIconButton.Rotation = 0D;
+            this.MaximizeIconButton.Size = new System.Drawing.Size(37, 38);
+            this.MaximizeIconButton.TabIndex = 1;
+            this.MaximizeIconButton.UseVisualStyleBackColor = true;
+            this.MaximizeIconButton.Click += new System.EventHandler(this.MaximizeIconButton_Click);
+            // 
+            // CloseIconButton
+            // 
+            this.CloseIconButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseIconButton.FlatAppearance.BorderSize = 0;
+            this.CloseIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
+            this.CloseIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseIconButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.CloseIconButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.CloseIconButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.CloseIconButton.IconSize = 22;
+            this.CloseIconButton.Location = new System.Drawing.Point(967, 0);
+            this.CloseIconButton.Name = "CloseIconButton";
+            this.CloseIconButton.Rotation = 0D;
+            this.CloseIconButton.Size = new System.Drawing.Size(37, 38);
+            this.CloseIconButton.TabIndex = 0;
+            this.CloseIconButton.UseVisualStyleBackColor = true;
+            this.CloseIconButton.Click += new System.EventHandler(this.CloseIconButton_Click);
             // 
             // MainMenuFormMember
             // 
@@ -618,18 +619,18 @@
             this.Name = "MainMenuFormMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.SizeChanged += new System.EventHandler(this.MainMenuFormMember_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.SubDeskTopPanel.ResumeLayout(false);
             this.DeskTopPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).EndInit();
             this.PanelSideMenue.ResumeLayout(false);
             this.CasesSubMenuePanel.ResumeLayout(false);
             this.TeamsSubMenuePanel.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
             this.BorderPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleIconPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.ResumeLayout(false);
 
         }

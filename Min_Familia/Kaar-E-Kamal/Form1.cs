@@ -119,7 +119,8 @@ namespace Kaar_E_Kamal
                 AdminPic.BackgroundImage = Properties.Resources.admin0;
         }
         #endregion
-        
+
+        #region Click
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (!WarningsActivation() || (1 == 1))
@@ -151,6 +152,7 @@ namespace Kaar_E_Kamal
             FormPanel.Focus();  // To remove Focus the from TextBox on clicking the Panel
         }
         #endregion
+        #endregion
 
         #region Extra Functions
         #region Enter Or Leave Box
@@ -170,10 +172,10 @@ namespace Kaar_E_Kamal
         {
             if (Box.Text == "")
             {
-                WarningLabel.ForeColor = Color.Red;
                 Box.Text = Text;
                 Box.TextAlign = HorizontalAlignment.Center;
                 Box.ForeColor = Color.Gray;
+                WarningLabel.ForeColor = Color.Red;
             }
             else     // To check the Text Regex.
             {

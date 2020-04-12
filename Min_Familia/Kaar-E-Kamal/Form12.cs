@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace Kaar_E_Kamal
             InitializeComponent();
             CustomizedDesign();
 
-            TeamHead = false;
+            TeamHead = IsTeamHead(Email);
         }
 
         #region Colors
@@ -204,7 +205,6 @@ namespace Kaar_E_Kamal
         #endregion
 
         #region Cases
-
         private void CasesButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
@@ -247,7 +247,11 @@ namespace Kaar_E_Kamal
         private void ReferenceButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new ReferencesForm("Here Will Go Team"));
+
+            if (TeamHead)
+                OpenChildForm(new ReferencesForm("Head"));
+            else
+                OpenChildForm(new ReferencesForm());
         }
 
         private void HelpButton_Click(object sender, EventArgs e)
@@ -266,6 +270,32 @@ namespace Kaar_E_Kamal
             Reset();
             CurrentChildForm?.Hide();     // ? to check the null reference
 
+        }
+        #endregion
+
+        #region Extra Functions
+        private bool IsTeamHead(string Email)
+        {
+            try
+            {
+                using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
+                    using (SqlCommand Command = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT 1 FROM Familia_MembersData WHERE Familia_Member_Email = @email AND Familia_Member_Team_ID = NULL ) THEN 1 ELSE 0 END Team_Head;", MinFamiliaCon))
+                    {
+                        Command.Parameters.AddWithValue("@email", Email);
+
+                        MinFamiliaCon.Open();
+                        using (SqlDataReader DataReader = Command.ExecuteReader())
+                            if (DataReader.Read())
+                                return Convert.ToBoolean(DataReader["Team_Head"]);
+                        return false;
+                    }
+            }
+            catch
+            {
+                _ = MessageBox.Show("Unexpected Connection Error Occurred.", "DataBase Error"); // Discards are write-only variables.
+                Application.Exit();
+                return false;
+            }
         }
         #endregion
 

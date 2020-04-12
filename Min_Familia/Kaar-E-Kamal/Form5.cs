@@ -54,6 +54,7 @@ namespace Kaar_E_Kamal
                                 Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Team_Name"]);
                                 Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Team_Head_Name"]);
                                 Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Team_Head_CNIC"]);
+                                Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_Team_Creation_Date"]);
                                 
                                 TeamGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
                             }
@@ -72,7 +73,7 @@ namespace Kaar_E_Kamal
             try
             {
                 using (SqlConnection MinFamiliaCon = new SqlConnection("Data Source=DESKTOP-7F1UCLP\\MSSQLSERVER_2019;Initial Catalog=Non_Profit_Min_Familia;Integrated Security=True"))
-                using (SqlCommand Command = new SqlCommand("SELECT Familia_Member_Name, Familia_Member_CNIC, Familia_Member_Phone, Familia_Member_Gender FROM Familia_MembersData WHERE Familia_Member_Team_ID = @ID;", MinFamiliaCon))
+                using (SqlCommand Command = new SqlCommand("SELECT Familia_Member_Name, Familia_Member_CNIC, Familia_Member_Phone, Familia_Member_Gender, Familia_Member_Team_Joining_Date FROM Familia_MembersData WHERE Familia_Member_Team_ID = @ID;", MinFamiliaCon))
                 {
                     Command.Parameters.AddWithValue("@ID", TeamGrid.CurrentRow.Cells[1].Value);
                     MinFamiliaCon.Open();
@@ -94,6 +95,7 @@ namespace Kaar_E_Kamal
                             Rows.Cells[2].Value = Convert.ToString(DataReader["Familia_Member_CNIC"]);
                             Rows.Cells[3].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
                             Rows.Cells[4].Value = Convert.ToString(DataReader["Familia_Member_Phone"]);
+                            Rows.Cells[5].Value = Convert.ToString(DataReader["Familia_Member_Team_Joining_Date"]);
 
                             MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
                         }
@@ -121,7 +123,7 @@ namespace Kaar_E_Kamal
         {
             DialogResult Executed;
 
-            if (PartionPanel.Visible )
+            if (PartionPanel.Visible)
                 Executed = new TeamMemberDetailsForm().ShowDialog();
             else
                 Executed = new TeamDetailsForm().ShowDialog();
@@ -138,15 +140,13 @@ namespace Kaar_E_Kamal
 
         private void UpdateIconButton_Click(object sender, EventArgs e)
         {
-            DialogResult Executed = new TeamDetailsForm(Convert.ToString(TeamGrid.CurrentRow.Cells[1].Value)).ShowDialog();
-
-            if (DialogResult.Yes == Executed)        // To see if changes are made.
+            if (DialogResult.Yes == new TeamDetailsForm(TeamGrid.CurrentRow).ShowDialog())        // To see if changes are made.
                 PopulateTeamGrid();
         }
 
         private void DeleteIconButton_Click(object sender, EventArgs e)
         {
-            if (SearchPanel.Visible)
+            if (PartionPanel.Visible)
             {
                 PopulateMemberGrid();
             }
@@ -222,13 +222,13 @@ namespace Kaar_E_Kamal
             {
                         // Panels
                 RightBackPanel.Size = new Size(118, 0);
-                BackPartionPanel.Size = new Size(118, 0);
                 SearchPanel.Show();
                 PartionPanel.Hide();
                 MemberGrid.Show();
 
                 if (Person == "Admin")
                 {
+                    TeamGrid.Dock = DockStyle.Left;  // Make TeamGrid Dock Left
                     PartionPanel.Show();
                     UpdateIconButton.Hide();
                     DeleteIconButton.Location = new Point(11, 62);
@@ -249,10 +249,10 @@ namespace Kaar_E_Kamal
             {
                     // Panels
                 RightBackPanel.Size = new Size(136, 0);
-                BackPartionPanel.Size = new Size(136, 0);
                 PartionPanel.Hide();
                 SearchPanel.Hide();
                 MemberGrid.Hide();
+                TeamGrid.Dock = DockStyle.Fill;   // Make TeamGrid Dock Fill so it occupy all remaining form
 
                 if (Person == "Admin")  // Admin Case
                 {

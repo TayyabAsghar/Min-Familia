@@ -50,6 +50,7 @@ namespace Kaar_E_Kamal
                                 Rows.Cells[6].Value = Convert.ToString(DataReader["Familia_Member_Gender"]);
                                 Rows.Cells[7].Value = Convert.ToString(DataReader["Familia_Member_Password"]);
                                 Rows.Cells[8].Value = Convert.ToString(DataReader["Familia_Member_Team_ID"]);
+                                Rows.Cells[9].Value = Convert.ToString(DataReader["Familia_Member_Joining_Date"]);
 
                                 MemberGrid.Rows.Add(Rows);          // Add DataGridViewRows in MemberGrid
                             }
@@ -96,18 +97,15 @@ namespace Kaar_E_Kamal
         #region Events
         private void AddIconButton_Click(object sender, EventArgs e)
         {           // Send the Parent Form Name.
-            DialogResult Executed = new DetailsForm("MembersForm").ShowDialog();  // It waits until form is closed.
-
-            if (Executed == DialogResult.Yes)
+            if (DialogResult.Yes == new DetailsForm("MembersForm").ShowDialog())
                 PopulateGrid("SELECT * FROM Familia_MembersData");
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            DialogResult Executed = new DetailsForm("MembersForm", Convert.ToString(MemberGrid.Rows[MemberGrid.CurrentRow.Index].Cells[2].Value)).ShowDialog();
-
-            if (Executed == DialogResult.Yes)
-                PopulateGrid("SELECT * FROM Familia_MembersData");
+            if (MemberGrid.Rows.Count != 0)
+                if (DialogResult.Yes == new DetailsForm("MembersForm", MemberGrid.CurrentRow).ShowDialog())
+                    PopulateGrid("SELECT * FROM Familia_MembersData");
         }
 
         private void Delete_Click(object sender, EventArgs e)

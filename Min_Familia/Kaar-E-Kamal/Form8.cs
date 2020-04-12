@@ -187,7 +187,7 @@ namespace Kaar_E_Kamal
         #region Events
         private void ApproveIconButton_Click(object sender, EventArgs e)
         {
-
+            new CasesInformationForm("").ShowDialog();
         }
 
         private void RejectIconButton_Click(object sender, EventArgs e)
@@ -212,7 +212,7 @@ namespace Kaar_E_Kamal
 
         private void AddIconButton_Click(object sender, EventArgs e)
         {
-
+            new CasesInformationForm("").ShowDialog();
         }
         #endregion
     }

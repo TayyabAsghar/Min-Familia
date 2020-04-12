@@ -36,19 +36,19 @@
             this.PasswordWarningLabel = new System.Windows.Forms.Label();
             this.NameWarningLabel = new System.Windows.Forms.Label();
             this.NameBox = new System.Windows.Forms.TextBox();
-            this.EmailPic = new System.Windows.Forms.PictureBox();
             this.CloseLabel = new System.Windows.Forms.Label();
-            this.AdminPic = new System.Windows.Forms.PictureBox();
-            this.MemberPic = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.EmailBox = new System.Windows.Forms.TextBox();
+            this.SignInButton = new System.Windows.Forms.Button();
+            this.EmailPic = new System.Windows.Forms.PictureBox();
+            this.AdminPic = new System.Windows.Forms.PictureBox();
+            this.MemberPic = new System.Windows.Forms.PictureBox();
             this.PasswordPic = new System.Windows.Forms.PictureBox();
             this.NamePic = new System.Windows.Forms.PictureBox();
             this.LoginPic = new System.Windows.Forms.PictureBox();
-            this.SignInButton = new System.Windows.Forms.Button();
             this.FormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmailPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminPic)).BeginInit();
@@ -97,8 +97,8 @@
             this.PassBox.Name = "PassBox";
             this.PassBox.Size = new System.Drawing.Size(236, 19);
             this.PassBox.TabIndex = 51;
-            this.PassBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\-@#$%&!<>^,*`~?+:,.|])(?!.*[=;])(?=.{8," +
-    "})";
+            this.PassBox.Tag = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_\\\\-@#$%&!<>^*`~?+:,.|])(?!.*[,=;])(?=.{8" +
+    ",})";
             this.PassBox.Text = "Password";
             this.PassBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PassBox.Enter += new System.EventHandler(this.PassBox_Enter);
@@ -168,16 +168,6 @@
             this.NameBox.Enter += new System.EventHandler(this.NameBox_Enter);
             this.NameBox.Leave += new System.EventHandler(this.NameBox_Leave);
             // 
-            // EmailPic
-            // 
-            this.EmailPic.BackColor = System.Drawing.Color.Transparent;
-            this.EmailPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.mail;
-            this.EmailPic.Location = new System.Drawing.Point(42, 289);
-            this.EmailPic.Name = "EmailPic";
-            this.EmailPic.Size = new System.Drawing.Size(24, 24);
-            this.EmailPic.TabIndex = 43;
-            this.EmailPic.TabStop = false;
-            // 
             // CloseLabel
             // 
             this.CloseLabel.AutoSize = true;
@@ -193,32 +183,6 @@
             this.CloseLabel.Click += new System.EventHandler(this.CloseLabel_Click);
             this.CloseLabel.MouseLeave += new System.EventHandler(this.CloseLabel_MouseLeave);
             this.CloseLabel.MouseHover += new System.EventHandler(this.CloseLabel_MouseHover);
-            // 
-            // AdminPic
-            // 
-            this.AdminPic.BackColor = System.Drawing.Color.Transparent;
-            this.AdminPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.admin0;
-            this.AdminPic.Location = new System.Drawing.Point(250, 402);
-            this.AdminPic.Name = "AdminPic";
-            this.AdminPic.Size = new System.Drawing.Size(32, 32);
-            this.AdminPic.TabIndex = 41;
-            this.AdminPic.TabStop = false;
-            this.AdminPic.Click += new System.EventHandler(this.AdminPic_Click);
-            this.AdminPic.MouseLeave += new System.EventHandler(this.AdminPic_MouseLeave);
-            this.AdminPic.MouseHover += new System.EventHandler(this.AdminPic_MouseHover);
-            // 
-            // MemberPic
-            // 
-            this.MemberPic.BackColor = System.Drawing.Color.Transparent;
-            this.MemberPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.Member0;
-            this.MemberPic.Location = new System.Drawing.Point(63, 402);
-            this.MemberPic.Name = "MemberPic";
-            this.MemberPic.Size = new System.Drawing.Size(32, 32);
-            this.MemberPic.TabIndex = 40;
-            this.MemberPic.TabStop = false;
-            this.MemberPic.Click += new System.EventHandler(this.MemberPic_Click);
-            this.MemberPic.MouseLeave += new System.EventHandler(this.MemberPic_MouseLeave);
-            this.MemberPic.MouseHover += new System.EventHandler(this.MemberPic_MouseHover);
             // 
             // label1
             // 
@@ -264,12 +228,64 @@
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(236, 19);
             this.EmailBox.TabIndex = 35;
-            this.EmailBox.Tag = "[a-z0-9!#$%&\'*+/?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0" +
-    "-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            this.EmailBox.Tag = "[a-z0-9!#$%&\'*+/?^_`{|}~-]+(?:\\\\.[a-z0-9!#$%&\'*+/?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z" +
+    "0-9-]*[a-z0-9])?\\\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
             this.EmailBox.Text = "Someone@something.com";
             this.EmailBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EmailBox.Enter += new System.EventHandler(this.EmailBox_Enter);
             this.EmailBox.Leave += new System.EventHandler(this.EmailBox_Leave);
+            // 
+            // SignInButton
+            // 
+            this.SignInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(130)))), ((int)(((byte)(163)))));
+            this.SignInButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SignInButton.FlatAppearance.BorderSize = 0;
+            this.SignInButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.SignInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignInButton.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignInButton.Location = new System.Drawing.Point(42, 475);
+            this.SignInButton.Name = "SignInButton";
+            this.SignInButton.Size = new System.Drawing.Size(266, 30);
+            this.SignInButton.TabIndex = 31;
+            this.SignInButton.Text = "Sign In";
+            this.SignInButton.UseVisualStyleBackColor = false;
+            this.SignInButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // EmailPic
+            // 
+            this.EmailPic.BackColor = System.Drawing.Color.Transparent;
+            this.EmailPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.mail;
+            this.EmailPic.Location = new System.Drawing.Point(42, 289);
+            this.EmailPic.Name = "EmailPic";
+            this.EmailPic.Size = new System.Drawing.Size(24, 24);
+            this.EmailPic.TabIndex = 43;
+            this.EmailPic.TabStop = false;
+            // 
+            // AdminPic
+            // 
+            this.AdminPic.BackColor = System.Drawing.Color.Transparent;
+            this.AdminPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.admin0;
+            this.AdminPic.Location = new System.Drawing.Point(250, 402);
+            this.AdminPic.Name = "AdminPic";
+            this.AdminPic.Size = new System.Drawing.Size(32, 32);
+            this.AdminPic.TabIndex = 41;
+            this.AdminPic.TabStop = false;
+            this.AdminPic.Click += new System.EventHandler(this.AdminPic_Click);
+            this.AdminPic.MouseLeave += new System.EventHandler(this.AdminPic_MouseLeave);
+            this.AdminPic.MouseHover += new System.EventHandler(this.AdminPic_MouseHover);
+            // 
+            // MemberPic
+            // 
+            this.MemberPic.BackColor = System.Drawing.Color.Transparent;
+            this.MemberPic.BackgroundImage = global::Kaar_E_Kamal.Properties.Resources.Member0;
+            this.MemberPic.Location = new System.Drawing.Point(63, 402);
+            this.MemberPic.Name = "MemberPic";
+            this.MemberPic.Size = new System.Drawing.Size(32, 32);
+            this.MemberPic.TabIndex = 40;
+            this.MemberPic.TabStop = false;
+            this.MemberPic.Click += new System.EventHandler(this.MemberPic_Click);
+            this.MemberPic.MouseLeave += new System.EventHandler(this.MemberPic_MouseLeave);
+            this.MemberPic.MouseHover += new System.EventHandler(this.MemberPic_MouseHover);
             // 
             // PasswordPic
             // 
@@ -295,28 +311,12 @@
             // 
             this.LoginPic.BackColor = System.Drawing.Color.Transparent;
             this.LoginPic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginPic.BackgroundImage")));
-            this.LoginPic.Location = new System.Drawing.Point(155, 41);
+            this.LoginPic.Location = new System.Drawing.Point(149, 41);
             this.LoginPic.Name = "LoginPic";
             this.LoginPic.Size = new System.Drawing.Size(64, 64);
             this.LoginPic.TabIndex = 32;
             this.LoginPic.TabStop = false;
             this.LoginPic.Click += new System.EventHandler(this.FormPanel_Click);
-            // 
-            // SignInButton
-            // 
-            this.SignInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(130)))), ((int)(((byte)(163)))));
-            this.SignInButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.SignInButton.FlatAppearance.BorderSize = 0;
-            this.SignInButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.SignInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignInButton.Font = new System.Drawing.Font("Lovelo Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignInButton.Location = new System.Drawing.Point(42, 475);
-            this.SignInButton.Name = "SignInButton";
-            this.SignInButton.Size = new System.Drawing.Size(266, 30);
-            this.SignInButton.TabIndex = 31;
-            this.SignInButton.Text = "Sign In";
-            this.SignInButton.UseVisualStyleBackColor = false;
-            this.SignInButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // LoginForm
             // 
